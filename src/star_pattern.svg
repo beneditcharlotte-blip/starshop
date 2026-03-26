@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <g opacity="0.5">
+    <!-- Star -->
+    <path d="M100 50 L105 85 L140 90 L105 95 L100 130 L95 95 L60 90 L95 85 Z" fill="#d4a5a5" />
+    <!-- Curved Line -->
+    <path d="M100 90 C 250 50, 400 150, 100 400" stroke="#d4a5a5" stroke-width="0.5" fill="none" />
+  </g>
+</svg>
