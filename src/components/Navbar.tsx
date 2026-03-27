@@ -4,7 +4,7 @@ import { useCart } from '../context/CartContext';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface NavbarProps {
-  currentView?: 'home' | 'zodiac' | 'story' | 'moon-phase' | 'protection' | 'shop';
+  currentView?: 'home' | 'zodiac' | 'story' | 'moon-phase' | 'protection' | 'shop' | 'checkout';
 }
 
 const navLinks = [
@@ -26,8 +26,8 @@ export function Navbar({ currentView = 'home' }: NavbarProps) {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#4A252C]/90 backdrop-blur-md border-b border-[#d4a5a5]/20">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           {/* Desktop nav links */}
-          <div className="hidden md:flex items-center space-x-8 text-sm tracking-widest uppercase">
-            {navLinks.slice(0, 4).map(link => (
+          <div className="hidden md:flex items-center space-x-6 text-sm tracking-widest uppercase">
+            {navLinks.map(link => (
               <a
                 key={link.view}
                 href={link.href}
