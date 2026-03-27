@@ -4,25 +4,27 @@ import { motion } from 'motion/react';
 import { Plus } from 'lucide-react';
 import type { Product } from '../types';
 
-// 14 real SKUs based on actual crystal jewelry market data
+// 14 SKUs with real crystal jewelry imagery from Pexels (free license)
 const products: Product[] = [
   // ── 12 Zodiac SKUs ──────────────────────────────────────────────
   {
     id: '1',
     name: 'Aries Fire Stone Bracelet',
     price: 42,
-    image: 'https://sc02.alicdn.com/kf/Ab6979a5120c94d038891deebdd485e53m.png',
+    // Crystal bead bracelet on wrist — Pexels free license
+    image: 'https://images.pexels.com/photos/5317619/pexels-photo-5317619.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Bracelet',
     signs: ['Aries'],
     collection: 'zodiac',
     element: 'Fire',
-    description: 'Raw red jasper beads on an adjustable cord. Red jasper grounds Aries\' explosive energy, keeping passion focused and courage sustainable through every battle.',
+    description: 'Raw red jasper beads on an adjustable cord. Red jasper grounds Aries\'s explosive energy, keeping passion focused and courage sustainable through every battle.',
   },
   {
     id: '2',
     name: 'Taurus Rose Quartz Pendant',
     price: 48,
-    image: 'https://sc02.alicdn.com/kf/A8224c8273e9845188996e74d30d6a1c1X.png',
+    // Pink rose quartz crystals — Pexels free license
+    image: 'https://images.pexels.com/photos/3611406/pexels-photo-3611406.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Pendant',
     signs: ['Taurus'],
     collection: 'zodiac',
@@ -33,62 +35,68 @@ const products: Product[] = [
     id: '3',
     name: 'Gemini Dual Crystal Set',
     price: 55,
-    image: 'https://sc02.alicdn.com/kf/A30bcd4ad19b943c18f45df525f3220eft.png',
+    // Assorted healing crystals — Pexels free license
+    image: 'https://images.pexels.com/photos/2894954/pexels-photo-2894954.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Set',
     signs: ['Gemini'],
     collection: 'zodiac',
     element: 'Air',
-    description: 'Two matched tiger\'s eye pendants representing Gemini\'s twin nature. Enhances mental clarity, harmonises dual energies, and sharpens communication skills.',
+    description: "Two matched tiger's eye pendants representing Gemini's twin nature. Enhances mental clarity, harmonises dual energies, and sharpens communication skills.",
   },
   {
     id: '4',
     name: 'Cancer Moonstone Ring',
     price: 65,
-    image: 'https://sc02.alicdn.com/kf/A4dbfa4ebcca747fd8c836f7561897c09S.png',
+    // Green gemstone ring held in hand — Pexels free license
+    image: 'https://images.pexels.com/photos/7190066/pexels-photo-7190066.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Ring',
     signs: ['Cancer'],
     collection: 'zodiac',
     element: 'Water',
-    description: 'Blue flash moonstone set in sterling silver. Cancer\'s ruling moon magnifies through this crystal, amplifying intuition and offering emotional protection.',
+    description: "Blue flash moonstone set in sterling silver. Cancer's ruling moon magnifies through this crystal, amplifying intuition and offering emotional protection.",
   },
   {
     id: '5',
     name: 'Leo Citrine Power Bracelet',
     price: 52,
-    image: 'https://sc02.alicdn.com/kf/A07a4cb77f506418db988bcf1a4db1ea1A.png',
+    // Crystal beaded bracelet on dark surface — Pexels free license
+    image: 'https://images.pexels.com/photos/6850295/pexels-photo-6850295.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Bracelet',
     signs: ['Leo'],
     collection: 'zodiac',
     element: 'Fire',
-    description: 'Golden citrine beads on a gold-fill bracelet. The "merchant\'s stone" channels Leo\'s solar radiance into abundance, confidence, and magnetic leadership energy.',
+    description: "Golden citrine beads on a gold-fill bracelet. The merchant's stone channels Leo's solar radiance into abundance, confidence, and magnetic leadership energy.",
   },
   {
     id: '6',
     name: 'Virgo Amazonite Healing Set',
     price: 48,
-    image: 'https://sc02.alicdn.com/kf/A7d94e3c03ffe408b940d90bc6f71bfc7L.png',
+    // Crystal quartz raw stones on fabric — Pexels free license
+    image: 'https://images.pexels.com/photos/6475288/pexels-photo-6475288.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Set',
     signs: ['Virgo'],
     collection: 'zodiac',
     element: 'Earth',
-    description: 'Pale teal amazonite pendant and tumbled stone set. Calms Virgo\'s overactive mind, alleviates anxiety, and encourages the self-compassion this sign often denies itself.',
+    description: "Pale teal amazonite pendant and tumbled stone set. Calms Virgo's overactive mind, alleviates anxiety, and encourages the self-compassion this sign often denies itself.",
   },
   {
     id: '7',
     name: 'Libra Rose Quartz & Lapis Set',
     price: 68,
-    image: 'https://sc02.alicdn.com/kf/A2f54983b88584808bc25e4f04b6e518eE.png',
+    // Semiprecious stones collection — Pexels free license
+    image: 'https://images.pexels.com/photos/4040599/pexels-photo-4040599.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Set',
     signs: ['Libra'],
     collection: 'zodiac',
     element: 'Air',
-    description: 'Rose quartz and lapis lazuli paired for Libra\'s dual Venus nature. Together they strengthen loving relationships while supporting confident, honest communication.',
+    description: "Rose quartz and lapis lazuli paired for Libra's dual Venus nature. Together they strengthen loving relationships while supporting confident, honest communication.",
   },
   {
     id: '8',
     name: 'Scorpio Black Obsidian Necklace',
     price: 58,
-    image: 'https://sc02.alicdn.com/kf/Abf28a2cfe3fe43aaad224baa9654261bZ.png',
+    // Dark necklace with purple stone — Pexels free license
+    image: 'https://images.pexels.com/photos/965984/pexels-photo-965984.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Necklace',
     signs: ['Scorpio'],
     collection: 'zodiac',
@@ -99,45 +107,49 @@ const products: Product[] = [
     id: '9',
     name: 'Sagittarius Turquoise Bracelet',
     price: 62,
-    image: 'https://sc02.alicdn.com/kf/A617bf231fdca425997ef6d3974fd3dfeQ.png',
+    // Person holding crystal with beads — Pexels free license
+    image: 'https://images.pexels.com/photos/6998760/pexels-photo-6998760.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Bracelet',
     signs: ['Sagittarius'],
     collection: 'zodiac',
     element: 'Fire',
-    description: 'Natural sleeping beauty turquoise beads on stretch cord. The traveller\'s stone protects Sagittarius on every adventure while amplifying their philosophical wisdom.',
+    description: "Natural sleeping beauty turquoise beads on stretch cord. The traveller's stone protects Sagittarius on every adventure while amplifying their philosophical wisdom.",
   },
   {
     id: '10',
     name: 'Capricorn Garnet Pendant',
     price: 55,
-    image: 'https://sc02.alicdn.com/kf/Ab0e5e6b1051d4f7cab80dc9a07e01ba84.png',
+    // Silver pendant with green gemstone — Pexels free license
+    image: 'https://images.pexels.com/photos/1458867/pexels-photo-1458867.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Pendant',
     signs: ['Capricorn'],
     collection: 'zodiac',
     element: 'Earth',
-    description: 'Deep red Mozambique garnet on an oxidized silver chain. Reignites Capricorn\'s ambition, sustains drive through long climbs, and draws material success.',
+    description: "Deep red Mozambique garnet on an oxidized silver chain. Reignites Capricorn's ambition, sustains drive through long climbs, and draws material success.",
   },
   {
     id: '11',
     name: 'Aquarius Amethyst Crystal Wand',
     price: 45,
-    image: 'https://sc02.alicdn.com/kf/A24893d886216458b88e69a13cf96d159L.png',
+    // Purple gemstone pendant held in hand — Pexels free license
+    image: 'https://images.pexels.com/photos/965983/pexels-photo-965983.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Pendant',
     signs: ['Aquarius'],
     collection: 'zodiac',
     element: 'Air',
-    description: 'Raw amethyst point wrapped in gold wire. Heightens Aquarius\' already powerful intuition, calms revolutionary thought into clear vision, and opens the third eye.',
+    description: "Raw amethyst point wrapped in gold wire. Heightens Aquarius' powerful intuition, calms revolutionary thought into clear vision, and opens the third eye.",
   },
   {
     id: '12',
     name: 'Pisces Aquamarine Necklace',
     price: 72,
-    image: 'https://sc02.alicdn.com/kf/Ad3bd003562e44d40afcd3b191f0138cfy.png',
+    // Healing crystal necklace lifestyle — Pexels free license
+    image: 'https://images.pexels.com/photos/906056/pexels-photo-906056.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Necklace',
     signs: ['Pisces'],
     collection: 'zodiac',
     element: 'Water',
-    description: 'Oval aquamarine pendant on a sterling silver chain. The sea stone of courage calms Pisces\' emotional currents and opens clear channels of artistic expression.',
+    description: "Oval aquamarine pendant on a sterling silver chain. The sea stone of courage calms Pisces' emotional currents and opens clear channels of artistic expression.",
   },
 
   // ── 2 Gift Box SKUs ─────────────────────────────────────────────
@@ -145,7 +157,8 @@ const products: Product[] = [
     id: '13',
     name: 'Zodiac Crystal Starter Kit',
     price: 88,
-    image: 'https://sc02.alicdn.com/kf/Ab92e161cf7504edaa2e5997a8482db4fS.png',
+    // Crystals on marble surface — Pexels free license
+    image: 'https://images.pexels.com/photos/6825320/pexels-photo-6825320.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Gift Set',
     signs: ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'],
     collection: 'zodiac',
@@ -155,7 +168,8 @@ const products: Product[] = [
     id: '14',
     name: 'Full Moon Ritual Set',
     price: 115,
-    image: 'https://sc02.alicdn.com/kf/A07610dbe96a143c4845798cc21b7ed48r.png',
+    // Large gemstone illuminating crystal — Pexels free license
+    image: 'https://images.pexels.com/photos/4028962/pexels-photo-4028962.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Gift Set',
     signs: ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'],
     collection: 'moon-phase',
