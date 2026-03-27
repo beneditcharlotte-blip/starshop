@@ -153,6 +153,52 @@ const products: Product[] = [
     description: "Oval aquamarine pendant on a sterling silver chain. The sea stone of courage calms Pisces' emotional currents and opens clear channels of artistic expression.",
   },
 
+  // ── 4 Protection Amulet SKUs ────────────────────────────────────
+  {
+    id: 'a1',
+    name: 'Black Tourmaline Shield',
+    price: 68,
+    image: 'https://images.pexels.com/photos/1458867/pexels-photo-1458867.jpeg?auto=compress&cs=tinysrgb&w=800',
+    category: 'Pendant',
+    signs: ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'],
+    collection: 'amulet',
+    amuletPurpose: 'Protection',
+    description: 'Raw black tourmaline wrapped in oxidised silver wire on a black leather cord. The most powerful protective stone in the mineral kingdom — absorbs and repels negative energy before it reaches you.',
+  },
+  {
+    id: 'a2',
+    name: 'Rose Quartz Heart Amulet',
+    price: 78,
+    image: 'https://images.pexels.com/photos/3611406/pexels-photo-3611406.jpeg?auto=compress&cs=tinysrgb&w=800',
+    category: 'Pendant',
+    signs: ['Taurus', 'Libra', 'Cancer', 'Pisces'],
+    collection: 'amulet',
+    amuletPurpose: 'Love',
+    description: 'Hand-carved rose quartz heart on a 14k gold-fill chain. Opens the heart chakra and magnetically draws loving, nurturing relationships — both with others and with yourself.',
+  },
+  {
+    id: 'a3',
+    name: 'Pyrite Abundance Amulet',
+    price: 72,
+    image: 'https://images.pexels.com/photos/6825320/pexels-photo-6825320.jpeg?auto=compress&cs=tinysrgb&w=800',
+    category: 'Pendant',
+    signs: ['Leo', 'Capricorn', 'Aries'],
+    collection: 'amulet',
+    amuletPurpose: 'Wealth',
+    description: "Polished pyrite nugget set in 18k gold-plate — the ancient alchemist's stone of prosperity. Activates the solar plexus, amplifying confidence and attracting financial abundance.",
+  },
+  {
+    id: 'a4',
+    name: 'Labradorite Third Eye Amulet',
+    price: 88,
+    image: 'https://images.pexels.com/photos/965983/pexels-photo-965983.jpeg?auto=compress&cs=tinysrgb&w=800',
+    category: 'Pendant',
+    signs: ['Pisces', 'Scorpio', 'Sagittarius', 'Aquarius'],
+    collection: 'amulet',
+    amuletPurpose: 'Intuition',
+    description: 'Iridescent labradorite cabochon on a sterling silver rolo chain. The stone of transformation and seers — awakens psychic gifts, strengthens intuition, and creates a protective force field around the aura.',
+  },
+
   // ── 2 Gift Box SKUs ─────────────────────────────────────────────
   {
     id: '13',

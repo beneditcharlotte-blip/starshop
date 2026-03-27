@@ -11,10 +11,11 @@ import { StoryPage } from './components/StoryPage';
 import { MoonPhasePage } from './components/MoonPhasePage';
 import { ProtectionAmuletsPage } from './components/ProtectionAmuletsPage';
 import { ShopPage } from './components/ShopPage';
+import { CheckoutPage } from './components/CheckoutPage';
 
 export default function App() {
   const [selectedSign, setSelectedSign] = useState<string | null>(null);
-  const [currentView, setCurrentView] = useState<'home' | 'zodiac' | 'story' | 'moon-phase' | 'protection' | 'shop'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'zodiac' | 'story' | 'moon-phase' | 'protection' | 'shop' | 'checkout'>('home');
 
   // Handle hash navigation manually if needed, or just use state
   useEffect(() => {
@@ -30,6 +31,8 @@ export default function App() {
         setCurrentView('protection');
       } else if (hash === '#shop-page') {
         setCurrentView('shop');
+      } else if (hash === '#checkout') {
+        setCurrentView('checkout');
       } else {
         setCurrentView('home');
       }
@@ -48,6 +51,8 @@ export default function App() {
         setCurrentView('protection');
     } else if (hash === '#shop-page') {
         setCurrentView('shop');
+    } else if (hash === '#checkout') {
+        setCurrentView('checkout');
     }
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
@@ -105,6 +110,8 @@ export default function App() {
           <MoonPhasePage />
         ) : currentView === 'protection' ? (
           <ProtectionAmuletsPage />
+        ) : currentView === 'checkout' ? (
+          <CheckoutPage />
         ) : (
           <ShopPage />
         )}

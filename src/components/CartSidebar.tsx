@@ -123,7 +123,7 @@ export function CartSidebar() {
                 <button
                   onClick={() => {
                     setIsOpen(false);
-                    window.location.href = '/checkout';
+                    window.location.hash = '#checkout';
                   }}
                   className="w-full py-4 bg-[#d4a5a5] text-[#4A252C] uppercase tracking-[0.2em] text-xs font-bold hover:bg-[#e8d5d5] transition-colors"
                 >
