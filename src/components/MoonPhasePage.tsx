@@ -133,7 +133,7 @@ export function MoonPhasePage() {
             <p className="max-w-2xl mx-auto text-[#f3e6e6]/70 font-light mb-12 leading-loose">
                 Every phase of the moon offers a unique energy to work with. Our curated collections help you channel these cosmic forces into your daily life.
             </p>
-            <a href="#shop" className="inline-block px-12 py-4 bg-[#d4a5a5] text-[#4A252C] hover:bg-[#f3e6e6] transition-colors duration-300 uppercase tracking-widest text-sm font-medium">
+            <a href="#shop-page" className="inline-block px-12 py-4 bg-[#d4a5a5] text-[#4A252C] hover:bg-[#f3e6e6] transition-colors duration-300 uppercase tracking-widest text-sm font-medium">
                 Shop All Moon Jewelry
             </a>
          </div>

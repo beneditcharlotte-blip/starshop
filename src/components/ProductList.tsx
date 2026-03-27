@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { motion } from 'motion/react';
 import { Plus } from 'lucide-react';
 import type { Product } from '../types';
+import { ProductModal } from './ProductModal';
 
 // 14 SKUs with real crystal jewelry imagery from Pexels (free license)
 const products: Product[] = [
@@ -186,6 +187,7 @@ interface ProductListProps {
 
 export function ProductList({ selectedSign, collection, subCategory }: ProductListProps) {
   const { addItem } = useCart();
+  const [activeProduct, setActiveProduct] = useState<Product | null>(null);
 
   const filteredProducts = products.filter(p => {
     if (selectedSign && !p.signs.includes(selectedSign)) return false;
@@ -208,7 +210,8 @@ export function ProductList({ selectedSign, collection, subCategory }: ProductLi
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="group relative"
+          className="group relative cursor-pointer"
+          onClick={() => setActiveProduct(product)}
         >
           <div className="relative aspect-[3/4] overflow-hidden bg-[#1a0e0f] mb-4">
             <img
@@ -220,7 +223,7 @@ export function ProductList({ selectedSign, collection, subCategory }: ProductLi
             {/* Hover overlay */}
             <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-[#4A252C]/95 backdrop-blur-sm">
               <button
-                onClick={() => addItem(product)}
+                onClick={(e) => { e.stopPropagation(); addItem(product); }}
                 className="w-full flex items-center justify-center space-x-2 text-[#d4a5a5] uppercase tracking-widest text-xs py-2 border border-[#d4a5a5] hover:bg-[#d4a5a5] hover:text-[#4A252C] transition-colors"
               >
                 <span>Add to Cart</span>
@@ -248,6 +251,8 @@ export function ProductList({ selectedSign, collection, subCategory }: ProductLi
           </div>
         </motion.div>
       ))}
+
+      <ProductModal product={activeProduct} onClose={() => setActiveProduct(null)} />
 
       {filteredProducts.length === 0 && (
         <div className="col-span-full text-center py-20 opacity-40">

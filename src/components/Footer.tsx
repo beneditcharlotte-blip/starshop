@@ -27,7 +27,7 @@ export function Footer() {
             <h4 className="uppercase tracking-[0.2em] text-xs text-[#d4a5a5] mb-6">Support</h4>
             <ul className="space-y-4 text-[#f3e6e6]/60 font-light text-sm">
               <li><a href="#" className="hover:text-[#d4a5a5]">Care Guide</a></li>
-              <li><a href="#" className="hover:text-[#d4a5a5]">Shipping & Returns</a></li>
+              <li><a href="#shipping" className="hover:text-[#d4a5a5]">Shipping & Returns</a></li>
               <li><a href="#" className="hover:text-[#d4a5a5]">Contact Us</a></li>
               <li><a href="#" className="hover:text-[#d4a5a5]">FAQ</a></li>
             </ul>

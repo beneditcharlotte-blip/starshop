@@ -51,7 +51,7 @@ export function Hero() {
           </h1>
 
           <a
-            href="#shop"
+            href="#shop-page"
             className="inline-block px-8 py-3 border border-[#d4a5a5] text-[#d4a5a5] hover:bg-[#d4a5a5] hover:text-[#4A252C] transition-all duration-500 uppercase tracking-widest text-xs bg-transparent"
           >
             Explore Collection
