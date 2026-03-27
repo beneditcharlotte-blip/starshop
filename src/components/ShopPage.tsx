@@ -48,44 +48,6 @@ export function ShopPage() {
 
   return (
     <div className="min-h-screen bg-[#4A252C] text-[#f3e6e6] pt-20">
-      {/* Hero */}
-      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden border-b border-[#d4a5a5]/10">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1519681393784-d120267933ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxteXN0aWNhbCUyMHNob3B8ZW58MXx8fHwxNzY4MzU3NTUwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Mystical Shop"
-            className="w-full h-full object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-[#4A252C]/70 backdrop-blur-sm" />
-        </div>
-        
-        <div className="relative z-10 text-center space-y-4 px-4">
-          <motion.span 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-[#d4a5a5] tracking-[0.3em] uppercase text-xs md:text-sm"
-          >
-            Curated Treasures
-          </motion.span>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-serif italic text-[#f3e6e6]"
-          >
-            The Celestial Marketplace
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-lg font-light text-[#f3e6e6]/70 max-w-xl mx-auto"
-          >
-            Discover artifacts aligned with your stars, your moon, and your spirit.
-          </motion.p>
-        </div>
-      </section>
-
       <div className="container mx-auto px-6 py-16 min-h-[800px]">
         {/* Tab Navigation */}
         <div className="flex flex-wrap justify-start gap-8 mb-20 border-b border-[#d4a5a5]/10 pb-1">
@@ -99,7 +61,7 @@ export function ShopPage() {
                   : 'text-[#f3e6e6]/40 hover:text-[#d4a5a5]'
               }`}
             >
-              {tab === 'moon-phase' ? 'Moon Phase' : tab === 'zodiac' ? 'Zodiac' : 'Amulets'}
+              {tab === 'moon-phase' ? 'Moon Phase' : tab === 'zodiac' ? 'Element' : 'Amulets'}
               {activeTab === tab && (
                 <motion.div 
                   layoutId="activeTab"
