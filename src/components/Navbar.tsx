@@ -8,6 +8,7 @@ interface NavbarProps {
 }
 
 const navLinks = [
+  { label: 'Home', href: '#', view: 'home' },
   { label: 'Shop', href: '#shop-page', view: 'shop' },
   { label: 'Zodiac', href: '#zodiac-page', view: 'zodiac' },
   { label: 'Story', href: '#story-page', view: 'story' },
@@ -26,7 +27,7 @@ export function Navbar({ currentView = 'home' }: NavbarProps) {
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           {/* Desktop nav links */}
           <div className="hidden md:flex items-center space-x-8 text-sm tracking-widest uppercase">
-            {navLinks.slice(0, 3).map(link => (
+            {navLinks.slice(0, 4).map(link => (
               <a
                 key={link.view}
                 href={link.href}
