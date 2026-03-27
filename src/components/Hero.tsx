@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import heroImage from '../assets/207fe0f38425ea207014106d4659a1a4e407fdf0.png';
+import heroImage from '../assets/Image 9.png';
 
 const FALLBACK_HERO = 'https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1080';
 
