@@ -114,11 +114,9 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
                   )}
                   <p className="text-2xl text-[#d4a5a5] font-light">${product.price}</p>
                 </div>
-                {product.price < FREE_SHIPPING_THRESHOLD && (
-                  <p className="text-[10px] text-[#d4a5a5]/60 uppercase tracking-wider">
-                    Add ${FREE_SHIPPING_THRESHOLD - product.price} more for free shipping
-                  </p>
-                )}
+                <p className="text-[10px] text-[#d4a5a5]/60 uppercase tracking-wider">
+                  Free shipping on orders over ${FREE_SHIPPING_THRESHOLD}
+                </p>
               </div>
 
               {/* Divider */}

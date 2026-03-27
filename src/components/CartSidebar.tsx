@@ -134,9 +134,6 @@ export function CartSidebar() {
                 <p className="text-center text-[9px] text-white/20 tracking-wider">
                   VISA · Mastercard · PayPal · Apple Pay
                 </p>
-                <p className="text-center text-[9px] text-white/20 uppercase tracking-wider">
-                  VISA · Mastercard · PayPal · Apple Pay
-                </p>
               </div>
             )}
           </motion.div>
