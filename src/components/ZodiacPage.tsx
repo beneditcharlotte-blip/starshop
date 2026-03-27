@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ProductList } from './ProductList';
 import { zodiacSigns } from '../data/zodiacSigns';
+import { ZodiacSymbol } from './ZodiacSymbol';
 
 export function ZodiacPage() {
   const [activeSign, setActiveSign] = useState(zodiacSigns[11]);
@@ -19,7 +20,7 @@ export function ZodiacPage() {
               className={`text-xs uppercase tracking-widest transition-all duration-300 relative pb-1 flex flex-col items-center space-y-0.5
                 ${activeSign.name === sign.name ? 'text-[#d4a5a5]' : 'text-[#f3e6e6]/50 hover:text-[#d4a5a5]/80'}`}
             >
-              <span className="text-lg">{sign.symbol}</span>
+              <ZodiacSymbol sign={sign.name} size={22} />
               <span>{sign.name}</span>
               {activeSign.name === sign.name && (
                 <motion.div
@@ -71,7 +72,7 @@ export function ZodiacPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="relative z-10 text-center flex flex-col items-center space-y-6 px-4 max-w-2xl"
           >
-            <span className="text-6xl md:text-8xl">{activeSign.symbol}</span>
+            <ZodiacSymbol sign={activeSign.name} size={96} color="#d4a5a5" />
 
             <div className="space-y-2">
               <h2 className="font-serif text-5xl md:text-7xl italic text-white leading-none">
@@ -106,7 +107,7 @@ export function ZodiacPage() {
         <div className="text-center space-y-3">
           <p className="text-[10px] uppercase tracking-[0.3em] text-[#d4a5a5]/60">Curated for</p>
           <h3 className="font-serif text-3xl md:text-5xl text-[#d4a5a5] italic">
-            {activeSign.name} {activeSign.symbol}
+            {activeSign.name}
           </h3>
           <p className="text-sm tracking-widest uppercase opacity-50">
             Aligned with your {activeSign.element} energy
