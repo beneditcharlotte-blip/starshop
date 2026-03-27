@@ -2,8 +2,7 @@ import React from 'react';
 import { X, Plus, Minus, ShoppingBag, Truck } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { motion, AnimatePresence } from 'motion/react';
-
-const FREE_SHIPPING_THRESHOLD = 55;
+import { FREE_SHIPPING_THRESHOLD } from '../constants';
 
 export function CartSidebar() {
   const { isOpen, setIsOpen, items, removeItem, updateQuantity, total } = useCart();
@@ -65,7 +64,7 @@ export function CartSidebar() {
                   <ShoppingBag size={48} strokeWidth={1} />
                   <p className="tracking-widest uppercase text-sm">Your cart is empty</p>
                   <button
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => { setIsOpen(false); window.location.hash = '#shop-page'; }}
                     className="text-[10px] uppercase tracking-[0.2em] text-[#d4a5a5] border border-[#d4a5a5]/40 px-4 py-2 hover:bg-[#d4a5a5]/10 transition-colors"
                   >
                     Continue Shopping
@@ -131,6 +130,12 @@ export function CartSidebar() {
                 </button>
                 <p className="text-center text-[9px] text-white/30 uppercase tracking-wider">
                   Secure checkout · 30-day returns
+                </p>
+                <p className="text-center text-[9px] text-white/20 tracking-wider">
+                  VISA · Mastercard · PayPal · Apple Pay
+                </p>
+                <p className="text-center text-[9px] text-white/20 uppercase tracking-wider">
+                  VISA · Mastercard · PayPal · Apple Pay
                 </p>
               </div>
             )}

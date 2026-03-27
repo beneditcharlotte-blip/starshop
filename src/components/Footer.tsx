@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Star, Moon, Sun } from 'lucide-react';
 
 export function Footer() {
+  const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleNewsletter(e: React.FormEvent) {
+    e.preventDefault();
+    if (email.includes('@')) setSubmitted(true);
+  }
+
   return (
     <footer className="bg-[#2a171a] border-t border-[#d4a5a5]/10 pt-16 pb-8">
       <div className="container mx-auto px-4">
@@ -38,16 +46,22 @@ export function Footer() {
             <p className="text-[#f3e6e6]/60 font-light text-sm mb-4">
               Subscribe to receive cosmic updates and exclusive rituals.
             </p>
-            <div className="flex border-b border-[#d4a5a5]/30 pb-2">
-              <input 
-                type="email" 
-                placeholder="Your email address" 
-                className="bg-transparent w-full outline-none text-[#f3e6e6] placeholder-white/20 text-sm"
-              />
-              <button className="text-[#d4a5a5] uppercase text-xs tracking-widest hover:text-white transition-colors">
-                Join
-              </button>
-            </div>
+            {submitted ? (
+              <p className="text-[#d4a5a5] text-sm tracking-wide">✦ You're on the cosmic list.</p>
+            ) : (
+              <form onSubmit={handleNewsletter} className="flex border-b border-[#d4a5a5]/30 pb-2">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  placeholder="Your email address"
+                  className="bg-transparent w-full outline-none text-[#f3e6e6] placeholder-white/20 text-sm"
+                />
+                <button type="submit" className="text-[#d4a5a5] uppercase text-xs tracking-widest hover:text-white transition-colors">
+                  Join
+                </button>
+              </form>
+            )}
           </div>
         </div>
 

@@ -6,6 +6,7 @@ export interface Product {
   id: string;
   name: string;
   price: number;
+  compareAtPrice?: number;
   image: string;
   category: string;
   signs: string[];

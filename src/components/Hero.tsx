@@ -56,6 +56,9 @@ export function Hero() {
           >
             Explore Collection
           </a>
+          <p className="text-[10px] tracking-[0.15em] text-[#d4a5a5]/60 uppercase mt-6">
+            1,200+ Customers · 4.9★ Reviews · 30-Day Returns · Free Shipping $55+
+          </p>
         </motion.div>
       </div>
 

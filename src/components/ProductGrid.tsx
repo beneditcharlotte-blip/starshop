@@ -10,6 +10,7 @@ const PRODUCTS: Product[] = [
     id: 'g1',
     name: 'Moonstone Oracle Ring',
     price: 128,
+    compareAtPrice: 173,
     image: 'https://images.unsplash.com/photo-1638973365411-20c5a8482f1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb29uc3RvbmUlMjByaW5nJTIwbXlzdGljYWx8ZW58MXx8fHwxNzY4Mjk5MzQ5fDA&ixlib=rb-4.1.0&q=80&w=1080',
     category: 'Ring',
     signs: ['Cancer', 'Pisces', 'Scorpio'],
@@ -21,6 +22,7 @@ const PRODUCTS: Product[] = [
     id: 'g2',
     name: 'Amethyst Spirit Necklace',
     price: 156,
+    compareAtPrice: 211,
     image: 'https://images.unsplash.com/photo-1623644770830-3f0f6d2d2aed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbWV0aHlzdCUyMGNyeXN0YWwlMjBuZWNrbGFjZXxlbnwxfHx8fDE3NjgyOTkzNDl8MA&ixlib=rb-4.1.0&q=80&w=1080',
     category: 'Necklace',
     signs: ['Aquarius', 'Pisces', 'Capricorn'],
@@ -32,6 +34,7 @@ const PRODUCTS: Product[] = [
     id: 'g3',
     name: 'Rose Quartz Love Amulet',
     price: 98,
+    compareAtPrice: 132,
     image: 'https://images.unsplash.com/photo-1611480367081-03e93cccefd6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyb3NlJTIwcXVhcnR6JTIwcGVuZGFudHxlbnwxfHx8fDE3NjgyOTkzNDl8MA&ixlib=rb-4.1.0&q=80&w=1080',
     category: 'Pendant',
     signs: ['Taurus', 'Libra', 'Cancer'],
@@ -43,6 +46,7 @@ const PRODUCTS: Product[] = [
     id: 'g4',
     name: 'Celestial Chart Charm',
     price: 85,
+    compareAtPrice: 115,
     image: 'https://images.unsplash.com/photo-1730371851241-aad9cf97525f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx6b2RpYWMlMjBjb25zdGVsbGF0aW9ucyUyMG15c3RpY2FsfGVufDF8fHx8MTc2ODI5OTM0OXww&ixlib=rb-4.1.0&q=80&w=1080',
     category: 'Set',
     signs: ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'],
@@ -95,7 +99,7 @@ export function ProductGrid() {
                   <Heart className="w-5 h-5" />
                 </button>
                 {/* Mobile-visible add to cart */}
-                <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-[#4A252C]/95">
+                <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-0 md:translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 bg-[#4A252C]/95">
                   <button
                     onClick={(e) => { e.stopPropagation(); addItem(product); }}
                     className="w-full flex items-center justify-center space-x-2 text-[#d4a5a5] uppercase tracking-widest text-xs py-2 border border-[#d4a5a5] hover:bg-[#d4a5a5] hover:text-[#4A252C] transition-colors"
@@ -109,6 +113,9 @@ export function ProductGrid() {
                 <h3 className="font-serif text-xl text-[#F4D0D2] mb-1">{product.name}</h3>
                 <p className="text-[#D49A9A] text-sm mb-2">{product.category}</p>
                 <span className="text-[#F4D0D2] font-medium">${product.price}</span>
+                {product.compareAtPrice && (
+                  <s className="text-[#D49A9A]/50 text-xs ml-1">${product.compareAtPrice}</s>
+                )}
               </div>
             </motion.div>
           ))}

@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeft, Lock, CheckCircle, CreditCard, Truck } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { FREE_SHIPPING_THRESHOLD } from '../constants';
 
 type Step = 'form' | 'success';
 
 export function CheckoutPage() {
-  const { items, total, setIsOpen } = useCart();
+  const { items, total, setIsOpen, clearCart } = useCart();
   const [step, setStep] = useState<Step>('form');
   const [form, setForm] = useState({
     email: '',
@@ -22,7 +23,7 @@ export function CheckoutPage() {
   });
   const [errors, setErrors] = useState<Partial<typeof form>>({});
 
-  const freeShipping = total >= 55;
+  const freeShipping = total >= FREE_SHIPPING_THRESHOLD;
   const shipping = freeShipping ? 0 : 8;
   const orderTotal = total + shipping;
 
@@ -47,6 +48,8 @@ export function CheckoutPage() {
       setErrors(errs);
       return;
     }
+    clearCart();
+    setIsOpen(false);
     setStep('success');
   }
 
@@ -88,7 +91,7 @@ export function CheckoutPage() {
             </div>
           </div>
           <a
-            href="#"
+            href="#shop-page"
             className="inline-block text-xs uppercase tracking-[0.2em] text-[#d4a5a5] border border-[#d4a5a5]/40 px-8 py-3 hover:bg-[#d4a5a5]/10 transition-colors"
           >
             Continue Shopping
@@ -104,7 +107,7 @@ export function CheckoutPage() {
         {/* Header */}
         <div className="flex items-center justify-between mb-10">
           <a
-            href="#"
+            href="#shop-page"
             className="flex items-center space-x-2 text-[#d4a5a5]/60 hover:text-[#d4a5a5] transition-colors text-sm tracking-widest uppercase"
           >
             <ArrowLeft size={16} />

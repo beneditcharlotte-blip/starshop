@@ -3,8 +3,7 @@ import { X, Plus, Minus, ShoppingBag, Star, Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useCart } from '../context/CartContext';
 import type { Product } from '../types';
-
-const FREE_SHIPPING_THRESHOLD = 55;
+import { FREE_SHIPPING_THRESHOLD } from '../constants';
 
 interface ProductModalProps {
   product: Product | null;
@@ -109,7 +108,12 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
               {/* Name & Price */}
               <div className="space-y-2">
                 <h2 className="font-serif text-2xl md:text-3xl text-[#f3e6e6] leading-tight">{product.name}</h2>
-                <p className="text-2xl text-[#d4a5a5] font-light">${product.price}</p>
+                <div className="flex items-baseline gap-2">
+                  {product.compareAtPrice && (
+                    <s className="text-[#d4a5a5]/40 text-base">${product.compareAtPrice}</s>
+                  )}
+                  <p className="text-2xl text-[#d4a5a5] font-light">${product.price}</p>
+                </div>
                 {product.price < FREE_SHIPPING_THRESHOLD && (
                   <p className="text-[10px] text-[#d4a5a5]/60 uppercase tracking-wider">
                     Add ${FREE_SHIPPING_THRESHOLD - product.price} more for free shipping
