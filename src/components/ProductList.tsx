@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { motion } from 'motion/react';
 import { Plus } from 'lucide-react';
@@ -14,12 +14,12 @@ const products: Product[] = [
     price: 42,
     compareAtPrice: 57,
     // Crystal bead bracelet on wrist 鈥?Pexels free license
-    image: 'https://images.pexels.com/photos/5317619/pexels-photo-5317619.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://sc02.alicdn.com/kf/A49c01ab2bbb24bee8b343c91b88b6007n.png',
     category: 'Bracelet',
     signs: ['Aries'],
     collection: 'zodiac',
     element: 'Fire',
-    description: 'Raw red jasper beads on an adjustable cord. Red jasper grounds Aries\'s explosive energy, keeping passion focused and courage sustainable through every battle.',
+    description: "Aries season doesn't wait for permission — and neither do you. Raw red jasper keeps your fire burning without burning out. Wear it when the world needs your full force.",
   },
   {
     id: '2',
@@ -32,7 +32,7 @@ const products: Product[] = [
     signs: ['Taurus'],
     collection: 'zodiac',
     element: 'Earth',
-    description: 'Polished rose quartz teardrop on a 14k gold-fill chain. Venus-ruled Taurus finds deeper self-love and draws nurturing relationships through this stone of the heart.',
+    description: "You deserve beauty that lasts — not just in the things you collect, but in how you feel about yourself. Rose quartz opens what Taurus guards most carefully: the heart.",,
   },
   {
     id: '3',
@@ -45,7 +45,7 @@ const products: Product[] = [
     signs: ['Gemini'],
     collection: 'zodiac',
     element: 'Air',
-    description: "Two matched tiger's eye pendants representing Gemini's twin nature. Enhances mental clarity, harmonises dual energies, and sharpens communication skills.",
+    description: "Both versions of you deserve to be heard. Tiger's eye harmonises Gemini's twin minds into one brilliant, unstoppable voice. Clarity where there was chaos.",,
   },
   {
     id: '4',
@@ -58,7 +58,7 @@ const products: Product[] = [
     signs: ['Cancer'],
     collection: 'zodiac',
     element: 'Water',
-    description: "Blue flash moonstone set in sterling silver. Cancer's ruling moon magnifies through this crystal, amplifying intuition and offering emotional protection.",
+    description: "You feel everything — that's your power, not your weakness. Moonstone wraps Cancer's deepest intuition in silver light, turning sensitivity into an unbreakable shield.",,
   },
   {
     id: '5',
@@ -71,7 +71,7 @@ const products: Product[] = [
     signs: ['Leo'],
     collection: 'zodiac',
     element: 'Fire',
-    description: "Golden citrine beads on a gold-fill bracelet. The merchant's stone channels Leo's solar radiance into abundance, confidence, and magnetic leadership energy.",
+    description: "You were born to be seen. Citrine amplifies the solar energy Leo already radiates, transforming confidence into magnetic abundance that draws the room to you.",,
   },
   {
     id: '6',
@@ -84,7 +84,7 @@ const products: Product[] = [
     signs: ['Virgo'],
     collection: 'zodiac',
     element: 'Earth',
-    description: "Pale teal amazonite pendant and tumbled stone set. Calms Virgo's overactive mind, alleviates anxiety, and encourages the self-compassion this sign often denies itself.",
+    description: "You give everyone else grace — it's time to give some to yourself. Amazonite quiets Virgo's relentless inner critic and replaces it with the calm clarity you were born for.",,
   },
   {
     id: '7',
@@ -97,7 +97,7 @@ const products: Product[] = [
     signs: ['Libra'],
     collection: 'zodiac',
     element: 'Air',
-    description: "Rose quartz and lapis lazuli paired for Libra's dual Venus nature. Together they strengthen loving relationships while supporting confident, honest communication.",
+    description: "Balance isn't found — it's created. Rose quartz and lapis lazuli work together to help Libra say what they mean and love without losing themselves.",,
   },
   {
     id: '8',
@@ -110,7 +110,7 @@ const products: Product[] = [
     signs: ['Scorpio'],
     collection: 'zodiac',
     element: 'Water',
-    description: 'Volcanic black obsidian arrowhead on a black wax cord. Acts as a psychic mirror for Scorpio, revealing hidden truths and forming an impenetrable protective shield.',
+    description: "You already see through everything. Black obsidian gives Scorpio's razor intuition a physical anchor — a shield that absorbs what others can't even sense.",,
   },
   {
     id: '9',
@@ -123,7 +123,7 @@ const products: Product[] = [
     signs: ['Sagittarius'],
     collection: 'zodiac',
     element: 'Fire',
-    description: "Natural sleeping beauty turquoise beads on stretch cord. The traveller's stone protects Sagittarius on every adventure while amplifying their philosophical wisdom.",
+    description: "The horizon is calling, and you were built to answer. Turquoise protects Sagittarius on every journey — near or far — and keeps wisdom close when wanderlust gets loud.",,
   },
   {
     id: '10',
@@ -136,7 +136,7 @@ const products: Product[] = [
     signs: ['Capricorn'],
     collection: 'zodiac',
     element: 'Earth',
-    description: "Deep red Mozambique garnet on an oxidized silver chain. Reignites Capricorn's ambition, sustains drive through long climbs, and draws material success.",
+    description: "The summit is closer than you think. Garnet reignites the ambition Capricorn never truly loses — just temporarily buries under the weight of everything they're already carrying.",,
   },
   {
     id: '11',
@@ -149,7 +149,7 @@ const products: Product[] = [
     signs: ['Aquarius'],
     collection: 'zodiac',
     element: 'Air',
-    description: "Raw amethyst point wrapped in gold wire. Heightens Aquarius' powerful intuition, calms revolutionary thought into clear vision, and opens the third eye.",
+    description: "Your ideas are decades ahead of the room. Amethyst channels Aquarius' visionary frequency into clear, grounded thought — so the world can finally catch up to you.",,
   },
   {
     id: '12',
@@ -162,7 +162,7 @@ const products: Product[] = [
     signs: ['Pisces'],
     collection: 'zodiac',
     element: 'Water',
-    description: "Oval aquamarine pendant on a sterling silver chain. The sea stone of courage calms Pisces' emotional currents and opens clear channels of artistic expression.",
+    description: "You dream in frequencies others can't hear. Aquamarine gives Pisces' boundless imagination a gentle current — calming the depths so your art can rise to the surface.",,
   },
 
   // 鈹€鈹€ 4 Protection Amulet SKUs 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
@@ -171,12 +171,12 @@ const products: Product[] = [
     name: 'Black Tourmaline Shield',
     price: 68,
     compareAtPrice: 92,
-    image: 'https://images.pexels.com/photos/1458867/pexels-photo-1458867.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://sc02.alicdn.com/kf/A401eeb69f0a04f358fcb986f603e5158v.png',
     category: 'Pendant',
     signs: ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'],
     collection: 'amulet',
     amuletPurpose: 'Protection',
-    description: 'Raw black tourmaline wrapped in oxidised silver wire on a black leather cord. The most powerful protective stone in the mineral kingdom 鈥?absorbs and repels negative energy before it reaches you.',
+    description: "Some energy was never yours to carry. Black tourmaline forms an invisible boundary between you and everything that drains you — absorbing negativity before it even lands.",
   },
   {
     id: 'a2',
@@ -188,7 +188,7 @@ const products: Product[] = [
     signs: ['Taurus', 'Libra', 'Cancer', 'Pisces'],
     collection: 'amulet',
     amuletPurpose: 'Love',
-    description: 'Hand-carved rose quartz heart on a 14k gold-fill chain. Opens the heart chakra and magnetically draws loving, nurturing relationships 鈥?both with others and with yourself.',
+    description: "Love starts with the relationship you have with yourself. This hand-carved rose quartz heart opens what fear quietly closed — and makes space for the love you actually deserve.",
   },
   {
     id: 'a3',
@@ -200,7 +200,7 @@ const products: Product[] = [
     signs: ['Leo', 'Capricorn', 'Aries'],
     collection: 'amulet',
     amuletPurpose: 'Wealth',
-    description: "Polished pyrite nugget set in 18k gold-plate 鈥?the ancient alchemist's stone of prosperity. Activates the solar plexus, amplifying confidence and attracting financial abundance.",
+    description: "Abundance isn't luck — it's a frequency. Pyrite activates your solar plexus and locks you into the energy of prosperity, so opportunity stops passing you by.",
   },
   {
     id: 'a4',
@@ -212,7 +212,7 @@ const products: Product[] = [
     signs: ['Pisces', 'Scorpio', 'Sagittarius', 'Aquarius'],
     collection: 'amulet',
     amuletPurpose: 'Intuition',
-    description: 'Iridescent labradorite cabochon on a sterling silver rolo chain. The stone of transformation and seers 鈥?awakens psychic gifts, strengthens intuition, and creates a protective force field around the aura.',
+    description: "You've always known things you couldn't explain. Labradorite amplifies what you already sense — strengthening your intuition and wrapping your aura in an iridescent shield.",
   },
 
   // 鈹€鈹€ 2 Gift Box SKUs 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
@@ -226,7 +226,7 @@ const products: Product[] = [
     category: 'Gift Set',
     signs: ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'],
     collection: 'zodiac',
-    description: 'Three hand-selected raw healing crystals matched to your star sign, presented in an elegant black gift box with a personalised star chart card. The perfect introduction to crystal energy.',
+    description: "The perfect first step into your cosmic story. Three hand-selected raw crystals matched precisely to your star sign, presented in a matte black gift box with a personalised star chart card.",
   },
   {
     id: '14',
@@ -234,12 +234,12 @@ const products: Product[] = [
     price: 115,
     compareAtPrice: 155,
     // Large gemstone illuminating crystal 鈥?Pexels free license
-    image: 'https://images.pexels.com/photos/4028962/pexels-photo-4028962.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://sc02.alicdn.com/kf/A92067c8895424f59987d84ba96601b89E.png',
     category: 'Gift Set',
     signs: ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'],
     collection: 'moon-phase',
     moonPhase: 'Full Moon',
-    description: 'Clear quartz point, moonstone cabochon, hand-harvested white sage bundle, and a full moon ritual instruction card 鈥?everything you need to harness the peak lunar energy.',
+    description: "The full moon doesn't ask if you're ready — it reveals. This ritual set holds everything you need to release what no longer serves you and call in what you truly want.",
   },
 ];
 
@@ -332,3 +332,4 @@ export function ProductList({ selectedSign, collection, subCategory }: ProductLi
     </div>
   );
 }
+
