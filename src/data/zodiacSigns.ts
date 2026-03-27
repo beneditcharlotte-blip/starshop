@@ -6,7 +6,8 @@ export const zodiacSigns = [
     element: 'Fire',
     symbol: '♈',
     crystal: 'Bloodstone',
-    image: 'https://images.unsplash.com/photo-1636005811079-ea1b09d86e5a?q=80&w=1080',
+    // Ram silhouette in ancient mural (Pexels free license)
+    image: 'https://images.pexels.com/photos/5824809/pexels-photo-5824809.jpeg?auto=compress&cs=tinysrgb&w=1080',
     description: 'The fearless pioneer of the zodiac. Ruled by Mars, Aries charges forward with unstoppable courage and raw, primal energy. Their spirit ignites every room they enter.',
   },
   {
@@ -16,7 +17,8 @@ export const zodiacSigns = [
     element: 'Earth',
     symbol: '♉',
     crystal: 'Rose Quartz',
-    image: 'https://images.unsplash.com/photo-1672263357242-0745834cf8e9?q=80&w=1080',
+    // Majestic black bull — strength, earth, luxury (Pexels free license)
+    image: 'https://images.pexels.com/photos/551627/pexels-photo-551627.jpeg?auto=compress&cs=tinysrgb&w=1080',
     description: 'Grounded in the beauty of the earth. Taurus seeks comfort, luxury, and lasting bonds. Ruled by Venus, they are drawn to all things sensuous and enduring.',
   },
   {
@@ -26,7 +28,8 @@ export const zodiacSigns = [
     element: 'Air',
     symbol: '♊',
     crystal: 'Citrine',
-    image: 'https://images.unsplash.com/photo-1729147945836-ebe82d71be3c?q=80&w=1080',
+    // Twin mirrored aurora — duality, air, ethereal (Pexels free license)
+    image: 'https://images.pexels.com/photos/1652116/pexels-photo-1652116.jpeg?auto=compress&cs=tinysrgb&w=1080',
     description: 'Two souls in one constellation. Gemini dances between worlds — curious, communicative, and forever searching for the next great idea carried on the wind.',
   },
   {
@@ -36,7 +39,8 @@ export const zodiacSigns = [
     element: 'Water',
     symbol: '♋',
     crystal: 'Moonstone',
-    image: 'https://images.unsplash.com/photo-1728659986439-4515873342ca?q=80&w=1080',
+    // Full moon over ocean — lunar, water, emotion (Pexels free license)
+    image: 'https://images.pexels.com/photos/3948034/pexels-photo-3948034.jpeg?auto=compress&cs=tinysrgb&w=1080',
     description: 'Ruled by the moon and pulled by the tides. Cancer feels deeply, loves fiercely, and builds sanctuary wherever they roam. Their intuition is their greatest compass.',
   },
   {
@@ -46,7 +50,8 @@ export const zodiacSigns = [
     element: 'Fire',
     symbol: '♌',
     crystal: 'Sunstone',
-    image: 'https://images.unsplash.com/photo-1546182990-dffeafbe841d?q=80&w=1080',
+    // Majestic lion resting — regal, fire, radiance (Pexels free license)
+    image: 'https://images.pexels.com/photos/4224300/pexels-photo-4224300.jpeg?auto=compress&cs=tinysrgb&w=1080',
     description: 'Radiant as the sun itself. Leo commands every stage with magnetic warmth and regal confidence. They are born to shine and lift others into their golden light.',
   },
   {
@@ -56,7 +61,8 @@ export const zodiacSigns = [
     element: 'Earth',
     symbol: '♍',
     crystal: 'Peridot',
-    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1080',
+    // Woman meditating in front of galaxy projection — purity, sacred (Pexels free license)
+    image: 'https://images.pexels.com/photos/6932066/pexels-photo-6932066.jpeg?auto=compress&cs=tinysrgb&w=1080',
     description: 'The keeper of sacred patterns. Virgo sees what others miss — the fine threads of meaning woven into everyday life. Their devotion to craft and care is unmatched.',
   },
   {
@@ -66,7 +72,8 @@ export const zodiacSigns = [
     element: 'Air',
     symbol: '♎',
     crystal: 'Lapis Lazuli',
-    image: 'https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5c?q=80&w=1080',
+    // Justice scales figurine — harmony, balance, law (Pexels free license)
+    image: 'https://images.pexels.com/photos/6077430/pexels-photo-6077430.jpeg?auto=compress&cs=tinysrgb&w=1080',
     description: 'Born to seek harmony in all things. Libra weighs each moment with grace, bringing beauty and fairness to a world in perpetual motion. Love is their highest law.',
   },
   {
@@ -76,7 +83,8 @@ export const zodiacSigns = [
     element: 'Water',
     symbol: '♏',
     crystal: 'Black Obsidian',
-    image: 'https://images.unsplash.com/photo-1582166066838-4e1fba6e6d8a?q=80&w=1080',
+    // Tarot cards in dark mystic setting — transformation, mystery (Pexels free license)
+    image: 'https://images.pexels.com/photos/7222021/pexels-photo-7222021.jpeg?auto=compress&cs=tinysrgb&w=1080',
     description: 'Descended from ancient depths. Scorpio carries the power of transformation — they strip away illusion, face the shadow, and emerge reborn from every trial.',
   },
   {
@@ -86,7 +94,8 @@ export const zodiacSigns = [
     element: 'Fire',
     symbol: '♐',
     crystal: 'Turquoise',
-    image: 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?q=80&w=1080',
+    // Fantasy archer woman with wings — freedom, adventure, fire (Pexels free license)
+    image: 'https://images.pexels.com/photos/35994768/pexels-photo-35994768.jpeg?auto=compress&cs=tinysrgb&w=1080',
     description: 'Eternal wanderer of wide horizons. Sagittarius aims their arrow at truth, philosophy, and distant shores. Freedom is their birthright; wisdom, their quest.',
   },
   {
@@ -96,7 +105,8 @@ export const zodiacSigns = [
     element: 'Earth',
     symbol: '♑',
     crystal: 'Garnet',
-    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1080',
+    // Alpine ibex on mountain — ambition, endurance, heights (Pexels free license)
+    image: 'https://images.pexels.com/photos/6934215/pexels-photo-6934215.jpeg?auto=compress&cs=tinysrgb&w=1080',
     description: 'The ancient mountain climber of the zodiac. Capricorn builds empires with patience and precision, scaling every peak through sheer will and timeless discipline.',
   },
   {
@@ -106,7 +116,8 @@ export const zodiacSigns = [
     element: 'Air',
     symbol: '♒',
     crystal: 'Amethyst',
-    image: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1080',
+    // Woman standing in galaxy projection — visionary, cosmic, futuristic (Pexels free license)
+    image: 'https://images.pexels.com/photos/6931870/pexels-photo-6931870.jpeg?auto=compress&cs=tinysrgb&w=1080',
     description: 'Child of the stars and future-bearer. Aquarius exists slightly ahead of their time — visionary, electric, and forever devoted to a humanity not yet realized.',
   },
   {
@@ -116,7 +127,8 @@ export const zodiacSigns = [
     element: 'Water',
     symbol: '♓',
     crystal: 'Aquamarine',
-    image: 'https://images.unsplash.com/photo-1676672347384-f3c641cf9254?q=80&w=1080',
+    // Vibrant school of fish in deep blue ocean — water, dreams, infinite (Pexels free license)
+    image: 'https://images.pexels.com/photos/36385086/pexels-photo-36385086.jpeg?auto=compress&cs=tinysrgb&w=1080',
     description: 'Swimming between worlds seen and unseen. Pisces moves through life with boundless empathy, artistic vision, and a connection to the infinite ocean of spirit.',
   },
 ];
