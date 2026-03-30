@@ -12,10 +12,11 @@ import { MoonPhasePage } from './components/MoonPhasePage';
 import { ProtectionAmuletsPage } from './components/ProtectionAmuletsPage';
 import { ShopPage } from './components/ShopPage';
 import { CheckoutPage } from './components/CheckoutPage';
+import { PrivacyPolicyPage, TermsPage, ReturnPolicyPage, ShippingPolicyPage, FAQPage, ContactPage } from './components/PolicyPages';
 
 export default function App() {
   const [selectedSign, setSelectedSign] = useState<string | null>(null);
-  const [currentView, setCurrentView] = useState<'home' | 'zodiac' | 'story' | 'moon-phase' | 'protection' | 'shop' | 'checkout'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'zodiac' | 'story' | 'moon-phase' | 'protection' | 'shop' | 'checkout' | 'privacy' | 'terms' | 'returns' | 'shipping' | 'faq' | 'contact'>('home');
 
   // Handle hash navigation manually if needed, or just use state
   useEffect(() => {
@@ -33,6 +34,18 @@ export default function App() {
         setCurrentView('shop');
       } else if (hash === '#checkout') {
         setCurrentView('checkout');
+      } else if (hash === '#privacy') {
+        setCurrentView('privacy');
+      } else if (hash === '#terms') {
+        setCurrentView('terms');
+      } else if (hash === '#returns') {
+        setCurrentView('returns');
+      } else if (hash === '#shipping') {
+        setCurrentView('shipping');
+      } else if (hash === '#faq') {
+        setCurrentView('faq');
+      } else if (hash === '#contact') {
+        setCurrentView('contact');
       } else {
         setCurrentView('home');
       }
@@ -53,6 +66,18 @@ export default function App() {
         setCurrentView('shop');
     } else if (hash === '#checkout') {
         setCurrentView('checkout');
+    } else if (hash === '#privacy') {
+        setCurrentView('privacy');
+    } else if (hash === '#terms') {
+        setCurrentView('terms');
+    } else if (hash === '#returns') {
+        setCurrentView('returns');
+    } else if (hash === '#shipping') {
+        setCurrentView('shipping');
+    } else if (hash === '#faq') {
+        setCurrentView('faq');
+    } else if (hash === '#contact') {
+        setCurrentView('contact');
     }
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
@@ -112,6 +137,18 @@ export default function App() {
           <ProtectionAmuletsPage />
         ) : currentView === 'checkout' ? (
           <CheckoutPage />
+        ) : currentView === 'privacy' ? (
+          <PrivacyPolicyPage />
+        ) : currentView === 'terms' ? (
+          <TermsPage />
+        ) : currentView === 'returns' ? (
+          <ReturnPolicyPage />
+        ) : currentView === 'shipping' ? (
+          <ShippingPolicyPage />
+        ) : currentView === 'faq' ? (
+          <FAQPage />
+        ) : currentView === 'contact' ? (
+          <ContactPage />
         ) : (
           <ShopPage />
         )}

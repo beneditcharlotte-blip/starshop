@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import type { Product } from '../types';
 
 type CartItem = Product & { quantity: number };
@@ -17,7 +17,10 @@ type CartContextType = {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([]);
+  const [items, setItems] = useState<CartItem[]>(() => {
+    try { return JSON.parse(localStorage.getItem('starshop-cart') || '[]'); }
+    catch { return []; }
+  });
   const [isOpen, setIsOpen] = useState(false);
 
   const addItem = (product: Product) => {
@@ -44,6 +47,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         .filter(item => item.quantity > 0)
     );
   };
+
+  useEffect(() => {
+    localStorage.setItem('starshop-cart', JSON.stringify(items));
+  }, [items]);
 
   const clearCart = () => setItems([]);
 

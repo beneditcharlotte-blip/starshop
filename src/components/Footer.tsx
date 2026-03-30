@@ -34,10 +34,10 @@ export function Footer() {
           <div>
             <h4 className="uppercase tracking-[0.2em] text-xs text-[#d4a5a5] mb-6">Support</h4>
             <ul className="space-y-4 text-[#f3e6e6]/60 font-light text-sm">
-              <li><a href="#" className="hover:text-[#d4a5a5]">Care Guide</a></li>
+              <li><a href="#faq" className="hover:text-[#d4a5a5]">Care Guide</a></li>
               <li><a href="#shipping" className="hover:text-[#d4a5a5]">Shipping & Returns</a></li>
-              <li><a href="#" className="hover:text-[#d4a5a5]">Contact Us</a></li>
-              <li><a href="#" className="hover:text-[#d4a5a5]">FAQ</a></li>
+              <li><a href="#contact" className="hover:text-[#d4a5a5]">Contact Us</a></li>
+              <li><a href="#faq" className="hover:text-[#d4a5a5]">FAQ</a></li>
             </ul>
           </div>
 
@@ -66,7 +66,14 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-[#d4a5a5]/5 text-white/20 text-xs tracking-widest uppercase">
-          <p>© 2026 Astrophil and Stella. All rights reserved.</p>
+          <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
+            <p>© 2026 Astrophil and Stella. All rights reserved.</p>
+            <div className="flex space-x-4">
+              <a href="#privacy" className="hover:text-white/60 transition-colors">Privacy</a>
+              <a href="#terms" className="hover:text-white/60 transition-colors">Terms</a>
+              <a href="#returns" className="hover:text-white/60 transition-colors">Returns</a>
+            </div>
+          </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Star size={16} />
             <Moon size={16} />
