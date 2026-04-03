@@ -52,16 +52,15 @@ export function ShopPage() {
     <PageWrapper>
       {/* Sticky Tab Bar */}
       <div className="sticky top-20 z-40 bg-[#4A252C]/95 backdrop-blur border-b border-[#d4a5a5]/20">
-        <div className="flex items-stretch">
+        <div className="flex items-center justify-center gap-8 px-8">
           {(['zodiac', 'moon-phase', 'amulet'] as CollectionTab[]).map((tab) => (
-            <div key={tab} className="flex-1 flex justify-center">
-              <Tab
-                label={tab === 'moon-phase' ? 'Moon Phase' : tab === 'zodiac' ? 'Element' : 'Amulets'}
-                isActive={activeTab === tab}
-                onClick={() => setActiveTab(tab)}
-                layoutId="activeTab"
-              />
-            </div>
+            <Tab
+              key={tab}
+              label={tab === 'moon-phase' ? 'Moon Phase' : tab === 'zodiac' ? 'Element' : 'Amulets'}
+              isActive={activeTab === tab}
+              onClick={() => setActiveTab(tab)}
+              layoutId="activeTab"
+            />
           ))}
         </div>
       </div>
