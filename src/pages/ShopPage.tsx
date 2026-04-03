@@ -50,9 +50,9 @@ export function ShopPage() {
 
   return (
     <PageWrapper>
-      <div className="container mx-auto px-6 py-16 min-h-[800px]">
-        {/* Tab Navigation */}
-        <div className="flex flex-wrap justify-center gap-8 mb-20 border-b border-[#d4a5a5]/10 pb-1">
+      {/* Sticky Tab Bar */}
+      <div className="sticky top-20 z-40 bg-[#4A252C]/95 backdrop-blur border-b border-[#d4a5a5]/20">
+        <div className="flex items-center justify-center gap-8 px-8">
           {(['zodiac', 'moon-phase', 'amulet'] as CollectionTab[]).map((tab) => (
             <Tab
               key={tab}
@@ -63,7 +63,9 @@ export function ShopPage() {
             />
           ))}
         </div>
+      </div>
 
+      <div className="container mx-auto px-6 py-16 min-h-[800px]">
         {/* Content */}
         <AnimatePresence mode="wait">
           <motion.div
