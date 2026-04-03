@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
+import { useHashRouter } from './hooks/useHashRouter';
 import { Hero } from './components/Hero';
 import { ZodiacSelector } from './components/ZodiacSelector';
 import { ProductList } from './components/ProductList';
@@ -14,31 +15,9 @@ import { ShopPage } from './pages/ShopPage';
 import { ShippingPage } from './pages/ShippingPage';
 import { ReviewsSection } from './components/ReviewsSection';
 
-type View = 'home' | 'zodiac' | 'story' | 'moon-phase' | 'protection' | 'shop' | 'shipping';
-
-const hashToView: Record<string, View> = {
-  '#zodiac-page': 'zodiac',
-  '#story-page': 'story',
-  '#moon-phase': 'moon-phase',
-  '#protection-amulets': 'protection',
-  '#shop-page': 'shop',
-  '#shipping': 'shipping',
-};
-
 export default function App() {
   const [selectedSign, setSelectedSign] = useState<string | null>(null);
-  const [currentView, setCurrentView] = useState<View>('home');
-
-  useEffect(() => {
-    const resolve = () => {
-      const view = hashToView[window.location.hash] ?? 'home';
-      setCurrentView(view);
-      if (view !== 'home') window.scrollTo(0, 0);
-    };
-    resolve();
-    window.addEventListener('hashchange', resolve);
-    return () => window.removeEventListener('hashchange', resolve);
-  }, []);
+  const currentView = useHashRouter();
 
   return (
     <CartProvider>
