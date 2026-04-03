@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ProductList } from './ProductList';
 import { Sparkles, Moon, Shield } from 'lucide-react';
+import { Tab } from './ui/Tab';
 
 type CollectionTab = 'zodiac' | 'moon-phase' | 'amulet';
 
@@ -52,23 +53,13 @@ export function ShopPage() {
         {/* Tab Navigation */}
         <div className="flex flex-wrap justify-start gap-8 mb-20 border-b border-[#d4a5a5]/10 pb-1">
           {(['zodiac', 'moon-phase', 'amulet'] as CollectionTab[]).map((tab) => (
-            <button
+            <Tab
               key={tab}
+              label={tab === 'moon-phase' ? 'Moon Phase' : tab === 'zodiac' ? 'Element' : 'Amulets'}
+              isActive={activeTab === tab}
               onClick={() => setActiveTab(tab)}
-              className={`pb-4 text-sm md:text-base tracking-[0.2em] uppercase transition-colors relative ${
-                activeTab === tab 
-                  ? 'text-[#d4a5a5]' 
-                  : 'text-[#f3e6e6]/40 hover:text-[#d4a5a5]'
-              }`}
-            >
-              {tab === 'moon-phase' ? 'Moon Phase' : tab === 'zodiac' ? 'Element' : 'Amulets'}
-              {activeTab === tab && (
-                <motion.div 
-                  layoutId="activeTab"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#d4a5a5]"
-                />
-              )}
-            </button>
+              layoutId="activeTab"
+            />
           ))}
         </div>
 

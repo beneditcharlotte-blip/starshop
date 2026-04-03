@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ProductList } from './ProductList';
 import { zodiacSigns } from '../data/zodiacSigns';
 import { ZodiacSymbol } from './ZodiacSymbol';
+import { Tab } from './ui/Tab';
 
 export function ZodiacPage() {
   const [activeSign, setActiveSign] = useState(zodiacSigns[11]);
@@ -14,21 +15,19 @@ export function ZodiacPage() {
       <div className="sticky top-20 z-40 bg-[#4A252C]/95 backdrop-blur border-b border-[#d4a5a5]/20 overflow-x-auto no-scrollbar">
         <div className="flex items-center justify-start md:justify-center p-4 min-w-max space-x-6 px-8">
           {zodiacSigns.map((sign) => (
-            <button
+            <Tab
               key={sign.name}
+              isActive={activeSign.name === sign.name}
               onClick={() => setActiveSign(sign)}
-              className={`text-xs uppercase tracking-widest transition-all duration-300 relative pb-1 flex flex-col items-center space-y-0.5
-                ${activeSign.name === sign.name ? 'text-[#d4a5a5]' : 'text-[#f3e6e6]/50 hover:text-[#d4a5a5]/80'}`}
-            >
-              <ZodiacSymbol sign={sign.name} size={22} />
-              <span>{sign.name}</span>
-              {activeSign.name === sign.name && (
-                <motion.div
-                  layoutId="underline"
-                  className="absolute bottom-0 left-0 right-0 h-[1px] bg-[#d4a5a5]"
-                />
-              )}
-            </button>
+              layoutId="zodiac-underline"
+              className="text-xs pb-1 flex flex-col items-center space-y-0.5"
+              label={
+                <>
+                  <ZodiacSymbol sign={sign.name} size={22} />
+                  <span>{sign.name}</span>
+                </>
+              }
+            />
           ))}
         </div>
       </div>
