@@ -14,20 +14,15 @@ export function ZodiacPage() {
 
       {/* Sticky Tab Bar */}
       <div className="sticky top-20 z-40 bg-[#4A252C]/95 backdrop-blur border-b border-[#d4a5a5]/20 overflow-x-auto no-scrollbar">
-        <div className="flex items-center justify-start md:justify-center p-4 min-w-max space-x-6 px-8">
+        <div className="flex items-center justify-center p-4 min-w-max space-x-6 px-8">
           {zodiacSigns.map((sign) => (
             <Tab
               key={sign.name}
+              label={sign.name}
               isActive={activeSign.name === sign.name}
               onClick={() => setActiveSign(sign)}
               layoutId="zodiac-underline"
-              className="text-xs pb-1 flex flex-col items-center space-y-0.5"
-              label={
-                <>
-                  <ZodiacSymbol sign={sign.name} size={22} />
-                  <span>{sign.name}</span>
-                </>
-              }
+              icon={<ZodiacSymbol sign={sign.name} size={22} />}
             />
           ))}
         </div>

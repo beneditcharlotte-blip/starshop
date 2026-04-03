@@ -52,7 +52,7 @@ export function ShopPage() {
     <PageWrapper>
       <div className="container mx-auto px-6 py-16 min-h-[800px]">
         {/* Tab Navigation */}
-        <div className="flex flex-wrap justify-start gap-8 mb-20 border-b border-[#d4a5a5]/10 pb-1">
+        <div className="flex flex-wrap justify-center gap-8 mb-20 border-b border-[#d4a5a5]/10 pb-1">
           {(['zodiac', 'moon-phase', 'amulet'] as CollectionTab[]).map((tab) => (
             <Tab
               key={tab}

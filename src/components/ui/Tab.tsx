@@ -2,22 +2,24 @@ import React from 'react';
 import { motion } from 'motion/react';
 
 interface TabProps {
-  label: React.ReactNode;
+  label: string;
   isActive: boolean;
   onClick: () => void;
   layoutId?: string;
-  className?: string;
+  /** Optional icon rendered above the label */
+  icon?: React.ReactNode;
 }
 
-export function Tab({ label, isActive, onClick, layoutId = 'tab-underline', className }: TabProps) {
+export function Tab({ label, isActive, onClick, layoutId = 'tab-underline', icon }: TabProps) {
   return (
     <button
       onClick={onClick}
-      className={`pb-4 text-sm md:text-base tracking-[0.2em] uppercase transition-colors relative ${
+      className={`pb-4 text-sm tracking-[0.2em] uppercase transition-colors relative flex flex-col items-center gap-1 ${
         isActive ? 'text-[#d4a5a5]' : 'text-[#f3e6e6]/40 hover:text-[#d4a5a5]'
-      } ${className ?? ''}`}
+      }`}
     >
-      {label}
+      {icon}
+      <span>{label}</span>
       {isActive && (
         <motion.div
           layoutId={layoutId}
