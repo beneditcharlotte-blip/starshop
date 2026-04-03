@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Moon, Circle, CircleDashed } from 'lucide-react';
+import { PageWrapper } from './layout/PageWrapper';
 
 export function MoonPhasePage() {
   const phases = [
@@ -35,7 +36,7 @@ export function MoonPhasePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#4A252C] text-[#f3e6e6] pt-20">
+    <PageWrapper>
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden border-b border-[#d4a5a5]/10">
         <div className="absolute inset-0 z-0">
@@ -138,6 +139,6 @@ export function MoonPhasePage() {
             </a>
          </div>
       </section>
-    </div>
+    </PageWrapper>
   );
 }

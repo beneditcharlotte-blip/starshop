@@ -4,12 +4,13 @@ import { ProductList } from './ProductList';
 import { zodiacSigns } from '../data/zodiacSigns';
 import { ZodiacSymbol } from './ZodiacSymbol';
 import { Tab } from './ui/Tab';
+import { PageWrapper } from './layout/PageWrapper';
 
 export function ZodiacPage() {
   const [activeSign, setActiveSign] = useState(zodiacSigns[11]);
 
   return (
-    <div className="min-h-screen bg-[#4A252C] text-[#f3e6e6] pt-20">
+    <PageWrapper>
 
       {/* Sticky Tab Bar */}
       <div className="sticky top-20 z-40 bg-[#4A252C]/95 backdrop-blur border-b border-[#d4a5a5]/20 overflow-x-auto no-scrollbar">
@@ -115,6 +116,6 @@ export function ZodiacPage() {
 
         <ProductList selectedSign={activeSign.name} />
       </section>
-    </div>
+    </PageWrapper>
   );
 }

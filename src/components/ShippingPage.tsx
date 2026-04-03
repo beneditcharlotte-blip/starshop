@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Truck, RefreshCw, ShieldCheck, MapPin } from 'lucide-react';
+import { PageWrapper } from './layout/PageWrapper';
 
 const sections = [
   {
@@ -47,7 +48,7 @@ const sections = [
 
 export function ShippingPage() {
   return (
-    <div id="shipping" className="min-h-screen bg-[#4A252C] text-[#f3e6e6] pt-28 pb-24">
+    <PageWrapper className="pb-24 pt-28" id="shipping">
       <div className="container mx-auto px-6 max-w-3xl space-y-16">
 
         {/* Header */}
@@ -100,6 +101,6 @@ export function ShippingPage() {
           </p>
         </div>
       </div>
-    </div>
+    </PageWrapper>
   );
 }

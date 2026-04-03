@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Star, Moon, Heart } from 'lucide-react';
+import { PageWrapper } from './layout/PageWrapper';
 
 export function StoryPage() {
   return (
-    <div className="min-h-screen bg-[#4A252C] text-[#f3e6e6] pt-20">
+    <PageWrapper>
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -166,6 +167,6 @@ export function StoryPage() {
           </a>
         </motion.div>
       </section>
-    </div>
+    </PageWrapper>
   );
 }

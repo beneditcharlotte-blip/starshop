@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Shield, Eye, Hand, Hexagon } from 'lucide-react';
+import { PageWrapper } from './layout/PageWrapper';
 
 export function ProtectionAmuletsPage() {
   const amulets = [
@@ -34,7 +35,7 @@ export function ProtectionAmuletsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#4A252C] text-[#f3e6e6] pt-20">
+    <PageWrapper>
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -138,6 +139,6 @@ export function ProtectionAmuletsPage() {
           </motion.div>
         </div>
       </section>
-    </div>
+    </PageWrapper>
   );
 }

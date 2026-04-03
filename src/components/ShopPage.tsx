@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ProductList } from './ProductList';
 import { Sparkles, Moon, Shield } from 'lucide-react';
 import { Tab } from './ui/Tab';
+import { PageWrapper } from './layout/PageWrapper';
 
 type CollectionTab = 'zodiac' | 'moon-phase' | 'amulet';
 
@@ -48,7 +49,7 @@ export function ShopPage() {
   const ActiveIcon = collections[activeTab].icon;
 
   return (
-    <div className="min-h-screen bg-[#4A252C] text-[#f3e6e6] pt-20">
+    <PageWrapper>
       <div className="container mx-auto px-6 py-16 min-h-[800px]">
         {/* Tab Navigation */}
         <div className="flex flex-wrap justify-start gap-8 mb-20 border-b border-[#d4a5a5]/10 pb-1">
@@ -104,6 +105,6 @@ export function ShopPage() {
           </motion.div>
         </AnimatePresence>
       </div>
-    </div>
+    </PageWrapper>
   );
 }
