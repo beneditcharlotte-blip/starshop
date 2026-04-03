@@ -2,19 +2,12 @@ import React, { useState } from 'react';
 import { ShoppingBag, Search, Menu, X } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { motion, AnimatePresence } from 'motion/react';
+import { NAV_LINKS } from '../constants/navigation';
+import type { View } from '../types';
 
 interface NavbarProps {
-  currentView?: 'home' | 'zodiac' | 'story' | 'moon-phase' | 'protection' | 'shop' | 'checkout';
+  currentView?: View;
 }
-
-const navLinks = [
-  { label: 'Home', href: '#', view: 'home' },
-  { label: 'Shop', href: '#shop-page', view: 'shop' },
-  { label: 'Zodiac', href: '#zodiac-page', view: 'zodiac' },
-  { label: 'Story', href: '#story-page', view: 'story' },
-  { label: 'Moon Phase', href: '#moon-phase', view: 'moon-phase' },
-  { label: 'Protection', href: '#protection-amulets', view: 'protection' },
-] as const;
 
 export function Navbar({ currentView = 'home' }: NavbarProps) {
   const { items, setIsOpen } = useCart();
@@ -24,10 +17,10 @@ export function Navbar({ currentView = 'home' }: NavbarProps) {
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#4A252C]/90 backdrop-blur-md border-b border-[#d4a5a5]/20">
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          {/* Desktop nav links */}
-          <div className="hidden md:flex items-center space-x-6 text-sm tracking-widest uppercase">
-            {navLinks.map(link => (
+        <div className="container mx-auto px-6 h-20 flex items-center">
+          {/* Left: desktop nav links */}
+          <div className="flex-1 hidden md:flex items-center space-x-6 text-sm tracking-widest uppercase">
+            {NAV_LINKS.map(link => (
               <a
                 key={link.view}
                 href={link.href}
@@ -38,25 +31,26 @@ export function Navbar({ currentView = 'home' }: NavbarProps) {
             ))}
           </div>
 
-          {/* Mobile hamburger */}
-          <button
-            className="md:hidden text-[#f3e6e6] hover:text-[#d4a5a5] transition-colors"
-            onClick={() => setMobileOpen(v => !v)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Left: mobile hamburger */}
+          <div className="flex-1 md:hidden">
+            <button
+              className="text-[#f3e6e6] hover:text-[#d4a5a5] transition-colors"
+              onClick={() => setMobileOpen(v => !v)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
 
-          {/* Logo */}
-          <a
-            href="#"
-            className="text-xl md:text-2xl font-serif italic text-[#d4a5a5] absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap"
-          >
-            Astrophil and Stella
-          </a>
+          {/* Center: logo */}
+          <div className="flex-1 flex justify-center">
+            <a href="#" className="text-xl md:text-2xl font-serif italic text-[#d4a5a5] whitespace-nowrap">
+              Astrophil and Stella
+            </a>
+          </div>
 
-          {/* Right icons */}
-          <div className="flex items-center space-x-6">
+          {/* Right: icons */}
+          <div className="flex-1 flex items-center justify-end space-x-6">
             <button className="text-[#f3e6e6] hover:text-[#d4a5a5] transition-colors">
               <Search size={20} />
             </button>
@@ -98,7 +92,7 @@ export function Navbar({ currentView = 'home' }: NavbarProps) {
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="fixed left-0 top-0 h-full w-72 bg-[#4A252C] border-r border-[#d4a5a5]/20 z-50 flex flex-col pt-24 px-8 space-y-8 md:hidden"
             >
-              {navLinks.map(link => (
+              {NAV_LINKS.map(link => (
                 <a
                   key={link.view}
                   href={link.href}
