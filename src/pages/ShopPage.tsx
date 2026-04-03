@@ -52,7 +52,7 @@ export function ShopPage() {
     <PageWrapper>
       {/* Sticky Tab Bar */}
       <div className="sticky top-20 z-40 bg-[#4A252C]/95 backdrop-blur border-b border-[#d4a5a5]/20">
-        <div className="flex items-center justify-center gap-8 px-8">
+        <div className="flex items-center justify-center p-4 space-x-8 px-8">
           {(['zodiac', 'moon-phase', 'amulet'] as CollectionTab[]).map((tab) => (
             <Tab
               key={tab}
