@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ProductList } from './ProductList';
+import { ProductList } from '../components/ProductList';
 import { zodiacSigns } from '../data/zodiacSigns';
-import { ZodiacSymbol } from './ZodiacSymbol';
-import { Tab } from './ui/Tab';
-import { PageWrapper } from './layout/PageWrapper';
+import { ZodiacSymbol } from '../components/ZodiacSymbol';
+import { Tab } from '../components/ui/Tab';
+import { PageWrapper } from '../components/layout/PageWrapper';
 
 export function ZodiacPage() {
   const [activeSign, setActiveSign] = useState(zodiacSigns[11]);

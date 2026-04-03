@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Moon, Circle, CircleDashed } from 'lucide-react';
-import { PageWrapper } from './layout/PageWrapper';
+import { PageWrapper } from '../components/layout/PageWrapper';
 
 export function MoonPhasePage() {
   const phases = [

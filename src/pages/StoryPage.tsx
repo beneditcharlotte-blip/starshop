@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Star, Moon, Heart } from 'lucide-react';
-import { PageWrapper } from './layout/PageWrapper';
+import { PageWrapper } from '../components/layout/PageWrapper';
 
 export function StoryPage() {
   return (

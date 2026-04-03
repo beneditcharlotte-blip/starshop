@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ProductList } from './ProductList';
+import { ProductList } from '../components/ProductList';
 import { Sparkles, Moon, Shield } from 'lucide-react';
-import { Tab } from './ui/Tab';
-import { PageWrapper } from './layout/PageWrapper';
+import { Tab } from '../components/ui/Tab';
+import { PageWrapper } from '../components/layout/PageWrapper';
 
 type CollectionTab = 'zodiac' | 'moon-phase' | 'amulet';
 

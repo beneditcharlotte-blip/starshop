@@ -6,12 +6,12 @@ import { ProductList } from './components/ProductList';
 import { Footer } from './components/Footer';
 import { CartProvider } from './context/CartContext';
 import { CartSidebar } from './components/CartSidebar';
-import { ZodiacPage } from './components/ZodiacPage';
-import { StoryPage } from './components/StoryPage';
-import { MoonPhasePage } from './components/MoonPhasePage';
-import { ProtectionAmuletsPage } from './components/ProtectionAmuletsPage';
-import { ShopPage } from './components/ShopPage';
-import { ShippingPage } from './components/ShippingPage';
+import { ZodiacPage } from './pages/ZodiacPage';
+import { StoryPage } from './pages/StoryPage';
+import { MoonPhasePage } from './pages/MoonPhasePage';
+import { ProtectionAmuletsPage } from './pages/ProtectionAmuletsPage';
+import { ShopPage } from './pages/ShopPage';
+import { ShippingPage } from './pages/ShippingPage';
 import { ReviewsSection } from './components/ReviewsSection';
 
 type View = 'home' | 'zodiac' | 'story' | 'moon-phase' | 'protection' | 'shop' | 'shipping';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Shield, Eye, Hand, Hexagon } from 'lucide-react';
-import { PageWrapper } from './layout/PageWrapper';
+import { PageWrapper } from '../components/layout/PageWrapper';
 
 export function ProtectionAmuletsPage() {
   const amulets = [
