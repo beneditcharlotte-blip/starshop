@@ -11,95 +11,55 @@ import { StoryPage } from './components/StoryPage';
 import { MoonPhasePage } from './components/MoonPhasePage';
 import { ProtectionAmuletsPage } from './components/ProtectionAmuletsPage';
 import { ShopPage } from './components/ShopPage';
-import { CheckoutPage } from './components/CheckoutPage';
-import { PrivacyPolicyPage, TermsPage, ReturnPolicyPage, ShippingPolicyPage, FAQPage, ContactPage } from './components/PolicyPages';
+import { ShippingPage } from './components/ShippingPage';
+import { ReviewsSection } from './components/ReviewsSection';
+
+type View = 'home' | 'zodiac' | 'story' | 'moon-phase' | 'protection' | 'shop' | 'shipping';
+
+const hashToView: Record<string, View> = {
+  '#zodiac-page': 'zodiac',
+  '#story-page': 'story',
+  '#moon-phase': 'moon-phase',
+  '#protection-amulets': 'protection',
+  '#shop-page': 'shop',
+  '#shipping': 'shipping',
+};
 
 export default function App() {
   const [selectedSign, setSelectedSign] = useState<string | null>(null);
-  const [currentView, setCurrentView] = useState<'home' | 'zodiac' | 'story' | 'moon-phase' | 'protection' | 'shop' | 'checkout' | 'privacy' | 'terms' | 'returns' | 'shipping' | 'faq' | 'contact'>('home');
+  const [currentView, setCurrentView] = useState<View>('home');
 
-  // Handle hash navigation manually if needed, or just use state
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash === '#zodiac-page') {
-        setCurrentView('zodiac');
-      } else if (hash === '#story-page') {
-        setCurrentView('story');
-      } else if (hash === '#moon-phase') {
-        setCurrentView('moon-phase');
-      } else if (hash === '#protection-amulets') {
-        setCurrentView('protection');
-      } else if (hash === '#shop-page') {
-        setCurrentView('shop');
-      } else if (hash === '#checkout') {
-        setCurrentView('checkout');
-      } else if (hash === '#privacy') {
-        setCurrentView('privacy');
-      } else if (hash === '#terms') {
-        setCurrentView('terms');
-      } else if (hash === '#returns') {
-        setCurrentView('returns');
-      } else if (hash === '#shipping') {
-        setCurrentView('shipping');
-      } else if (hash === '#faq') {
-        setCurrentView('faq');
-      } else if (hash === '#contact') {
-        setCurrentView('contact');
-      } else {
-        setCurrentView('home');
-      }
+    const resolve = () => {
+      const view = hashToView[window.location.hash] ?? 'home';
+      setCurrentView(view);
+      if (view !== 'home') window.scrollTo(0, 0);
     };
-
-    window.addEventListener('hashchange', handleHashChange);
-    // Initial check
-    const hash = window.location.hash;
-    if (hash === '#zodiac-page') {
-        setCurrentView('zodiac');
-    } else if (hash === '#story-page') {
-        setCurrentView('story');
-    } else if (hash === '#moon-phase') {
-        setCurrentView('moon-phase');
-    } else if (hash === '#protection-amulets') {
-        setCurrentView('protection');
-    } else if (hash === '#shop-page') {
-        setCurrentView('shop');
-    } else if (hash === '#checkout') {
-        setCurrentView('checkout');
-    } else if (hash === '#privacy') {
-        setCurrentView('privacy');
-    } else if (hash === '#terms') {
-        setCurrentView('terms');
-    } else if (hash === '#returns') {
-        setCurrentView('returns');
-    } else if (hash === '#shipping') {
-        setCurrentView('shipping');
-    } else if (hash === '#faq') {
-        setCurrentView('faq');
-    } else if (hash === '#contact') {
-        setCurrentView('contact');
-    }
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    resolve();
+    window.addEventListener('hashchange', resolve);
+    return () => window.removeEventListener('hashchange', resolve);
   }, []);
 
   return (
     <CartProvider>
       <div className="min-h-screen bg-[#4A252C] text-[#f3e6e6] font-serif selection:bg-[#d4a5a5] selection:text-[#4A252C]">
         <Navbar currentView={currentView} />
-        
-        {currentView === 'home' ? (
+
+        {currentView === 'home' && (
           <>
             <Hero />
             <main className="container mx-auto px-4 py-12 space-y-24">
+              {/* Philosophy */}
               <section id="philosophy" className="max-w-2xl mx-auto text-center space-y-8 py-12">
                 <span className="text-[#d4a5a5] text-2xl font-serif italic">Astrophil and Stella</span>
                 <p className="text-lg md:text-xl font-light leading-relaxed text-[#f3e6e6]/80">
-                  In the silence of the cosmos, every stone holds a memory. 
+                  In the silence of the cosmos, every stone holds a memory.
                   Like the eternal dance between Astrophil and his Stella, our jewelry bridges the gap between the earthly and the celestial—carrying the ancient wisdom of the constellations against your skin.
                 </p>
-                <div className="w-16 h-[1px] bg-[#d4a5a5]/40 mx-auto"></div>
+                <div className="w-16 h-[1px] bg-[#d4a5a5]/40 mx-auto" />
               </section>
 
+              {/* Zodiac selector */}
               <section id="zodiac">
                 <div className="text-center mb-12 space-y-4">
                   <h2 className="text-4xl md:text-5xl italic font-light tracking-wider text-[#d4a5a5]">
@@ -112,47 +72,34 @@ export default function App() {
                 <ZodiacSelector selectedSign={selectedSign} onSelect={setSelectedSign} />
               </section>
 
-              <section id="shop">
+              {/* Product grid */}
+              <section id="shop-page">
                 <div className="text-center mb-12 space-y-4">
                   <h2 className="text-4xl md:text-5xl italic font-light tracking-wider text-[#d4a5a5]">
                     {selectedSign ? `${selectedSign} Collection` : 'All Treasures'}
                   </h2>
                   <p className="text-sm tracking-widest uppercase opacity-80">
-                    {selectedSign 
-                      ? `Curated stones for the ${selectedSign} soul` 
+                    {selectedSign
+                      ? `Curated stones for the ${selectedSign} soul`
                       : 'Handcrafted crystal jewelry for every destiny'}
                   </p>
                 </div>
                 <ProductList selectedSign={selectedSign} />
               </section>
+
+              {/* Reviews */}
+              <ReviewsSection />
             </main>
           </>
-        ) : currentView === 'zodiac' ? (
-          <ZodiacPage />
-        ) : currentView === 'story' ? (
-          <StoryPage />
-        ) : currentView === 'moon-phase' ? (
-          <MoonPhasePage />
-        ) : currentView === 'protection' ? (
-          <ProtectionAmuletsPage />
-        ) : currentView === 'checkout' ? (
-          <CheckoutPage />
-        ) : currentView === 'privacy' ? (
-          <PrivacyPolicyPage />
-        ) : currentView === 'terms' ? (
-          <TermsPage />
-        ) : currentView === 'returns' ? (
-          <ReturnPolicyPage />
-        ) : currentView === 'shipping' ? (
-          <ShippingPolicyPage />
-        ) : currentView === 'faq' ? (
-          <FAQPage />
-        ) : currentView === 'contact' ? (
-          <ContactPage />
-        ) : (
-          <ShopPage />
         )}
-        
+
+        {currentView === 'zodiac' && <ZodiacPage />}
+        {currentView === 'story' && <StoryPage />}
+        {currentView === 'moon-phase' && <MoonPhasePage />}
+        {currentView === 'protection' && <ProtectionAmuletsPage />}
+        {currentView === 'shop' && <ShopPage />}
+        {currentView === 'shipping' && <ShippingPage />}
+
         <Footer />
         <CartSidebar />
       </div>

@@ -21,14 +21,14 @@ const reviews = [
     name: 'Camille D.',
     sign: 'Leo',
     rating: 5,
-    text: 'I ordered the Citrine bracelet for my birthday and it arrived in 5 days. The gold beads catch light beautifully and I've had so many compliments. Already planning my next order.',
+    text: "I ordered the Citrine bracelet for my birthday and it arrived in 5 days. The gold beads catch light beautifully and I've had so many compliments. Already planning my next order.",
     date: 'March 2026',
   },
   {
     name: 'Isabelle W.',
     sign: 'Cancer',
     rating: 5,
-    text: 'The Moonstone ring has the most gorgeous blue flash I've ever seen in person. I'm a crystal collector and this is among my most treasured pieces. Packaging felt like unwrapping a gift from the stars.',
+    text: "The Moonstone ring has the most gorgeous blue flash I've ever seen in person. I'm a crystal collector and this is among my most treasured pieces. Packaging felt like unwrapping a gift from the stars.",
     date: 'January 2026',
   },
 ];
