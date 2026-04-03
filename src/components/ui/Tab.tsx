@@ -14,7 +14,7 @@ export function Tab({ label, isActive, onClick, layoutId = 'tab-underline', icon
   return (
     <button
       onClick={onClick}
-      className={`pb-4 text-sm tracking-[0.2em] uppercase transition-colors relative flex flex-col items-center gap-1 ${
+      className={`pt-4 pb-4 text-sm tracking-[0.2em] uppercase transition-colors relative flex flex-col items-center gap-1 ${
         isActive ? 'text-[#d4a5a5]' : 'text-[#f3e6e6]/40 hover:text-[#d4a5a5]'
       }`}
     >
