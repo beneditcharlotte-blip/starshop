@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ProductList } from '../components/ProductList';
 import { Sparkles, Moon, Shield } from 'lucide-react';
 import { Tab } from '../components/ui/Tab';
+import { StickyTabBar } from '../components/ui/StickyTabBar';
 import { PageWrapper } from '../components/layout/PageWrapper';
 
 type CollectionTab = 'zodiac' | 'moon-phase' | 'amulet';
@@ -50,20 +51,19 @@ export function ShopPage() {
 
   return (
     <PageWrapper>
-      {/* Sticky Tab Bar */}
-      <div className="sticky top-20 z-40 bg-[#4A252C]/95 backdrop-blur border-b border-[#d4a5a5]/20">
+      <StickyTabBar>
         <div className="flex items-center justify-center space-x-8 px-8">
           {(['zodiac', 'moon-phase', 'amulet'] as CollectionTab[]).map((tab) => (
             <Tab
               key={tab}
-              label={tab === 'moon-phase' ? 'Moon Phase' : tab === 'zodiac' ? 'Element' : 'Amulets'}
+              label={tab === 'moon-phase' ? 'Moon Phase' : tab === 'zodiac' ? 'Zodiac' : 'Amulet'}
               isActive={activeTab === tab}
               onClick={() => setActiveTab(tab)}
               layoutId="activeTab"
             />
           ))}
         </div>
-      </div>
+      </StickyTabBar>
 
       <div className="container mx-auto px-6 py-16 min-h-[800px]">
         {/* Content */}

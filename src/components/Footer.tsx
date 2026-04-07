@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, Moon, Sun } from 'lucide-react';
+import { Instagram, Twitter, Youtube } from 'lucide-react';
 
 export function Footer() {
   const [email, setEmail] = useState('');
@@ -65,7 +65,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-[#d4a5a5]/5 text-white/20 text-xs tracking-widest uppercase">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-[#d4a5a5]/10 text-white/40 text-xs tracking-widest uppercase">
           <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
             <p>© 2026 Astrophil and Stella. All rights reserved.</p>
             <div className="flex space-x-4">
@@ -74,10 +74,16 @@ export function Footer() {
               <a href="#returns" className="hover:text-white/60 transition-colors">Returns</a>
             </div>
           </div>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Star size={16} />
-            <Moon size={16} />
-            <Sun size={16} />
+          <div className="flex space-x-5 mt-4 md:mt-0">
+            <a href="#instagram" aria-label="Instagram" className="hover:text-white/60 transition-colors">
+              <Instagram size={16} />
+            </a>
+            <a href="#twitter" aria-label="Twitter / X" className="hover:text-white/60 transition-colors">
+              <Twitter size={16} />
+            </a>
+            <a href="#youtube" aria-label="YouTube" className="hover:text-white/60 transition-colors">
+              <Youtube size={16} />
+            </a>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ShoppingBag, Search, Menu, X } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { motion, AnimatePresence } from 'motion/react';
@@ -12,7 +12,13 @@ interface NavbarProps {
 export function Navbar({ currentView = 'home' }: NavbarProps) {
   const { items, setIsOpen } = useCart();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const searchRef = useRef<HTMLInputElement>(null);
   const itemCount = items.reduce((acc, item) => acc + item.quantity, 0);
+
+  useEffect(() => {
+    if (searchOpen) searchRef.current?.focus();
+  }, [searchOpen]);
 
   return (
     <>
@@ -24,9 +30,15 @@ export function Navbar({ currentView = 'home' }: NavbarProps) {
               <a
                 key={link.view}
                 href={link.href}
-                className={`hover:text-[#d4a5a5] transition-colors ${currentView === link.view ? 'text-[#d4a5a5]' : ''}`}
+                className={`relative hover:text-[#d4a5a5] transition-colors pb-1 ${currentView === link.view ? 'text-[#d4a5a5]' : ''}`}
               >
                 {link.label}
+                {currentView === link.view && (
+                  <motion.div
+                    layoutId="nav-underline"
+                    className="absolute -bottom-0.5 left-0 right-0 h-px bg-[#d4a5a5]"
+                  />
+                )}
               </a>
             ))}
           </div>
@@ -51,8 +63,12 @@ export function Navbar({ currentView = 'home' }: NavbarProps) {
 
           {/* Right: icons */}
           <div className="flex-1 flex items-center justify-end space-x-6">
-            <button className="text-[#f3e6e6] hover:text-[#d4a5a5] transition-colors">
-              <Search size={20} />
+            <button
+              className={`transition-colors ${searchOpen ? 'text-[#d4a5a5]' : 'text-[#f3e6e6] hover:text-[#d4a5a5]'}`}
+              onClick={() => setSearchOpen(v => !v)}
+              aria-label="Toggle search"
+            >
+              {searchOpen ? <X size={20} /> : <Search size={20} />}
             </button>
             <button
               className="text-[#f3e6e6] hover:text-[#d4a5a5] transition-colors relative"
@@ -72,6 +88,28 @@ export function Navbar({ currentView = 'home' }: NavbarProps) {
             </button>
           </div>
         </div>
+
+        {/* Search bar */}
+        <AnimatePresence>
+          {searchOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="overflow-hidden border-t border-[#d4a5a5]/10"
+            >
+              <div className="container mx-auto px-6 py-4">
+                <input
+                  ref={searchRef}
+                  type="text"
+                  placeholder="Search crystals, signs, collections..."
+                  className="w-full bg-transparent text-[#f3e6e6] placeholder-[#f3e6e6]/30 outline-none text-sm tracking-widest border-b border-[#d4a5a5]/30 pb-2"
+                />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       {/* Mobile menu drawer */}

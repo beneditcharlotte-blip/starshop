@@ -10,7 +10,7 @@ interface TabProps {
   icon?: React.ReactNode;
 }
 
-export function Tab({ label, isActive, onClick, layoutId = 'tab-underline', icon }: TabProps) {
+export const Tab = React.memo(function Tab({ label, isActive, onClick, layoutId = 'tab-underline', icon }: TabProps) {
   return (
     <button
       onClick={onClick}
@@ -28,4 +28,4 @@ export function Tab({ label, isActive, onClick, layoutId = 'tab-underline', icon
       )}
     </button>
   );
-}
+});

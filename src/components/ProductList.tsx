@@ -13,33 +13,33 @@ const products: Product[] = [
     name: 'Aries Fire Stone Bracelet',
     price: 42,
     compareAtPrice: 57,
-    // Crystal bead bracelet on wrist â€?Pexels free license
+    // Crystal bead bracelet on wrist ï¿½?Pexels free license
     image: 'https://sc02.alicdn.com/kf/A49c01ab2bbb24bee8b343c91b88b6007n.png',
     category: 'Bracelet',
     signs: ['Aries'],
     collection: 'zodiac',
     element: 'Fire',
-    description: "Aries season doesn't wait for permission ¡ª and neither do you. Raw red jasper keeps your fire burning without burning out. Wear it when the world needs your full force.",
+    description: "Aries season doesn't wait for permission ï¿½ï¿½ and neither do you. Raw red jasper keeps your fire burning without burning out. Wear it when the world needs your full force.",
   },
   {
     id: '2',
     name: 'Taurus Rose Quartz Pendant',
     price: 48,
     compareAtPrice: 65,
-    // Pink rose quartz crystals â€?Pexels free license
+    // Pink rose quartz crystals ï¿½?Pexels free license
     image: 'https://images.pexels.com/photos/3611406/pexels-photo-3611406.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Pendant',
     signs: ['Taurus'],
     collection: 'zodiac',
     element: 'Earth',
-    description: "You deserve beauty that lasts ¡ª not just in the things you collect, but in how you feel about yourself. Rose quartz opens what Taurus guards most carefully: the heart.",
+    description: "You deserve beauty that lasts ï¿½ï¿½ not just in the things you collect, but in how you feel about yourself. Rose quartz opens what Taurus guards most carefully: the heart.",
   },
   {
     id: '3',
     name: 'Gemini Dual Crystal Set',
     price: 55,
     compareAtPrice: 74,
-    // Assorted healing crystals â€?Pexels free license
+    // Assorted healing crystals ï¿½?Pexels free license
     image: 'https://images.pexels.com/photos/2894954/pexels-photo-2894954.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Set',
     signs: ['Gemini'],
@@ -52,20 +52,20 @@ const products: Product[] = [
     name: 'Cancer Moonstone Ring',
     price: 65,
     compareAtPrice: 88,
-    // Green gemstone ring held in hand â€?Pexels free license
+    // Green gemstone ring held in hand ï¿½?Pexels free license
     image: 'https://images.pexels.com/photos/7190066/pexels-photo-7190066.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Ring',
     signs: ['Cancer'],
     collection: 'zodiac',
     element: 'Water',
-    description: "You feel everything ¡ª that's your power, not your weakness. Moonstone wraps Cancer's deepest intuition in silver light, turning sensitivity into an unbreakable shield.",
+    description: "You feel everything ï¿½ï¿½ that's your power, not your weakness. Moonstone wraps Cancer's deepest intuition in silver light, turning sensitivity into an unbreakable shield.",
   },
   {
     id: '5',
     name: 'Leo Citrine Power Bracelet',
     price: 52,
     compareAtPrice: 70,
-    // Crystal beaded bracelet on dark surface â€?Pexels free license
+    // Crystal beaded bracelet on dark surface ï¿½?Pexels free license
     image: 'https://images.pexels.com/photos/6850295/pexels-photo-6850295.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Bracelet',
     signs: ['Leo'],
@@ -78,91 +78,91 @@ const products: Product[] = [
     name: 'Virgo Amazonite Healing Set',
     price: 48,
     compareAtPrice: 65,
-    // Crystal quartz raw stones on fabric â€?Pexels free license
+    // Crystal quartz raw stones on fabric ï¿½?Pexels free license
     image: 'https://images.pexels.com/photos/6475288/pexels-photo-6475288.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Set',
     signs: ['Virgo'],
     collection: 'zodiac',
     element: 'Earth',
-    description: "You give everyone else grace ¡ª it's time to give some to yourself. Amazonite quiets Virgo's relentless inner critic and replaces it with the calm clarity you were born for.",
+    description: "You give everyone else grace ï¿½ï¿½ it's time to give some to yourself. Amazonite quiets Virgo's relentless inner critic and replaces it with the calm clarity you were born for.",
   },
   {
     id: '7',
     name: 'Libra Rose Quartz & Lapis Set',
     price: 68,
     compareAtPrice: 92,
-    // Semiprecious stones collection â€?Pexels free license
+    // Semiprecious stones collection ï¿½?Pexels free license
     image: 'https://images.pexels.com/photos/4040599/pexels-photo-4040599.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Set',
     signs: ['Libra'],
     collection: 'zodiac',
     element: 'Air',
-    description: "Balance isn't found ¡ª it's created. Rose quartz and lapis lazuli work together to help Libra say what they mean and love without losing themselves.",
+    description: "Balance isn't found ï¿½ï¿½ it's created. Rose quartz and lapis lazuli work together to help Libra say what they mean and love without losing themselves.",
   },
   {
     id: '8',
     name: 'Scorpio Black Obsidian Necklace',
     price: 58,
     compareAtPrice: 78,
-    // Dark necklace with purple stone â€?Pexels free license
+    // Dark necklace with purple stone ï¿½?Pexels free license
     image: 'https://images.pexels.com/photos/965984/pexels-photo-965984.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Necklace',
     signs: ['Scorpio'],
     collection: 'zodiac',
     element: 'Water',
-    description: "You already see through everything. Black obsidian gives Scorpio's razor intuition a physical anchor ¡ª a shield that absorbs what others can't even sense.",
+    description: "You already see through everything. Black obsidian gives Scorpio's razor intuition a physical anchor ï¿½ï¿½ a shield that absorbs what others can't even sense.",
   },
   {
     id: '9',
     name: 'Sagittarius Turquoise Bracelet',
     price: 62,
     compareAtPrice: 84,
-    // Person holding crystal with beads â€?Pexels free license
+    // Person holding crystal with beads ï¿½?Pexels free license
     image: 'https://images.pexels.com/photos/6998760/pexels-photo-6998760.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Bracelet',
     signs: ['Sagittarius'],
     collection: 'zodiac',
     element: 'Fire',
-    description: "The horizon is calling, and you were built to answer. Turquoise protects Sagittarius on every journey ¡ª near or far ¡ª and keeps wisdom close when wanderlust gets loud.",
+    description: "The horizon is calling, and you were built to answer. Turquoise protects Sagittarius on every journey ï¿½ï¿½ near or far ï¿½ï¿½ and keeps wisdom close when wanderlust gets loud.",
   },
   {
     id: '10',
     name: 'Capricorn Garnet Pendant',
     price: 55,
     compareAtPrice: 74,
-    // Silver pendant with green gemstone â€?Pexels free license
+    // Silver pendant with green gemstone ï¿½?Pexels free license
     image: 'https://images.pexels.com/photos/1458867/pexels-photo-1458867.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Pendant',
     signs: ['Capricorn'],
     collection: 'zodiac',
     element: 'Earth',
-    description: "The summit is closer than you think. Garnet reignites the ambition Capricorn never truly loses ¡ª just temporarily buries under the weight of everything they're already carrying.",
+    description: "The summit is closer than you think. Garnet reignites the ambition Capricorn never truly loses ï¿½ï¿½ just temporarily buries under the weight of everything they're already carrying.",
   },
   {
     id: '11',
     name: 'Aquarius Amethyst Crystal Wand',
     price: 45,
     compareAtPrice: 61,
-    // Purple gemstone pendant held in hand â€?Pexels free license
+    // Purple gemstone pendant held in hand ï¿½?Pexels free license
     image: 'https://images.pexels.com/photos/965983/pexels-photo-965983.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Pendant',
     signs: ['Aquarius'],
     collection: 'zodiac',
     element: 'Air',
-    description: "Your ideas are decades ahead of the room. Amethyst channels Aquarius' visionary frequency into clear, grounded thought ¡ª so the world can finally catch up to you.",
+    description: "Your ideas are decades ahead of the room. Amethyst channels Aquarius' visionary frequency into clear, grounded thought ï¿½ï¿½ so the world can finally catch up to you.",
   },
   {
     id: '12',
     name: 'Pisces Aquamarine Necklace',
     price: 72,
     compareAtPrice: 97,
-    // Healing crystal necklace lifestyle â€?Pexels free license
+    // Healing crystal necklace lifestyle ï¿½?Pexels free license
     image: 'https://images.pexels.com/photos/906056/pexels-photo-906056.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Necklace',
     signs: ['Pisces'],
     collection: 'zodiac',
     element: 'Water',
-    description: "You dream in frequencies others can't hear. Aquamarine gives Pisces' boundless imagination a gentle current ¡ª calming the depths so your art can rise to the surface.",
+    description: "You dream in frequencies others can't hear. Aquamarine gives Pisces' boundless imagination a gentle current ï¿½ï¿½ calming the depths so your art can rise to the surface.",
   },
 
   // â”€â”€ 4 Protection Amulet SKUs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -176,7 +176,7 @@ const products: Product[] = [
     signs: ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'],
     collection: 'amulet',
     amuletPurpose: 'Protection',
-    description: "Some energy was never yours to carry. Black tourmaline forms an invisible boundary between you and everything that drains you ¡ª absorbing negativity before it even lands.",
+    description: "Some energy was never yours to carry. Black tourmaline forms an invisible boundary between you and everything that drains you ï¿½ï¿½ absorbing negativity before it even lands.",
   },
   {
     id: 'a2',
@@ -188,7 +188,7 @@ const products: Product[] = [
     signs: ['Taurus', 'Libra', 'Cancer', 'Pisces'],
     collection: 'amulet',
     amuletPurpose: 'Love',
-    description: "Love starts with the relationship you have with yourself. This hand-carved rose quartz heart opens what fear quietly closed ¡ª and makes space for the love you actually deserve.",
+    description: "Love starts with the relationship you have with yourself. This hand-carved rose quartz heart opens what fear quietly closed ï¿½ï¿½ and makes space for the love you actually deserve.",
   },
   {
     id: 'a3',
@@ -200,7 +200,7 @@ const products: Product[] = [
     signs: ['Leo', 'Capricorn', 'Aries'],
     collection: 'amulet',
     amuletPurpose: 'Wealth',
-    description: "Abundance isn't luck ¡ª it's a frequency. Pyrite activates your solar plexus and locks you into the energy of prosperity, so opportunity stops passing you by.",
+    description: "Abundance isn't luck ï¿½ï¿½ it's a frequency. Pyrite activates your solar plexus and locks you into the energy of prosperity, so opportunity stops passing you by.",
   },
   {
     id: 'a4',
@@ -212,7 +212,7 @@ const products: Product[] = [
     signs: ['Pisces', 'Scorpio', 'Sagittarius', 'Aquarius'],
     collection: 'amulet',
     amuletPurpose: 'Intuition',
-    description: "You've always known things you couldn't explain. Labradorite amplifies what you already sense ¡ª strengthening your intuition and wrapping your aura in an iridescent shield.",
+    description: "You've always known things you couldn't explain. Labradorite amplifies what you already sense ï¿½ï¿½ strengthening your intuition and wrapping your aura in an iridescent shield.",
   },
 
   // â”€â”€ 2 Gift Box SKUs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -221,7 +221,7 @@ const products: Product[] = [
     name: 'Zodiac Crystal Starter Kit',
     price: 88,
     compareAtPrice: 119,
-    // Crystals on marble surface â€?Pexels free license
+    // Crystals on marble surface ï¿½?Pexels free license
     image: 'https://images.pexels.com/photos/6825320/pexels-photo-6825320.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Gift Set',
     signs: ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'],
@@ -233,13 +233,13 @@ const products: Product[] = [
     name: 'Full Moon Ritual Set',
     price: 115,
     compareAtPrice: 155,
-    // Large gemstone illuminating crystal â€?Pexels free license
+    // Large gemstone illuminating crystal ï¿½?Pexels free license
     image: 'https://sc02.alicdn.com/kf/A92067c8895424f59987d84ba96601b89E.png',
     category: 'Gift Set',
     signs: ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'],
     collection: 'moon-phase',
     moonPhase: 'Full Moon',
-    description: "The full moon doesn't ask if you're ready ¡ª it reveals. This ritual set holds everything you need to release what no longer serves you and call in what you truly want.",
+    description: "The full moon doesn't ask if you're ready ï¿½ï¿½ it reveals. This ritual set holds everything you need to release what no longer serves you and call in what you truly want.",
   },
 ];
 
@@ -284,8 +284,8 @@ export function ProductList({ selectedSign, collection, subCategory }: ProductLi
               className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
             />
 
-            {/* Add to Cart overlay â€?always visible on mobile, hover on desktop */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-0 md:translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 bg-[#4A252C]/95 backdrop-blur-sm">
+            {/* Add to Cart overlay ï¿½?always visible on mobile, hover on desktop */}
+            <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-[#4A252C]/95 backdrop-blur-sm">
               <button
                 onClick={(e) => { e.stopPropagation(); addItem(product); }}
                 className="w-full flex items-center justify-center space-x-2 text-[#d4a5a5] uppercase tracking-widest text-xs py-2 border border-[#d4a5a5] hover:bg-[#d4a5a5] hover:text-[#4A252C] transition-colors"
@@ -296,7 +296,7 @@ export function ProductList({ selectedSign, collection, subCategory }: ProductLi
             </div>
 
             {/* Category badge */}
-            <div className="absolute top-3 left-3 text-[9px] uppercase tracking-widest px-2 py-1 bg-[#4A252C]/80 text-[#d4a5a5] border border-[#d4a5a5]/30">
+            <div className="absolute top-3 left-3 text-[10px] uppercase tracking-widest px-2 py-1 bg-[#4A252C]/80 text-[#d4a5a5] border border-[#d4a5a5]/30">
               {product.category}
             </div>
           </div>
@@ -305,15 +305,12 @@ export function ProductList({ selectedSign, collection, subCategory }: ProductLi
             <h3 className="font-serif text-lg text-[#f3e6e6] leading-tight">{product.name}</h3>
             <p className="text-[#d4a5a5] font-light">
               {product.compareAtPrice && (
-                <s className="text-[#d4a5a5]/40 text-xs mr-2">${product.compareAtPrice}</s>
+                <s className="text-[#d4a5a5]/50 text-xs mr-2">${product.compareAtPrice}</s>
               )}
               ${product.price}
             </p>
-            <p className="text-[10px] text-white/40 leading-relaxed px-2 line-clamp-2">
-              {product.description}
-            </p>
             {product.signs.length <= 3 && (
-              <div className="text-[9px] text-white/25 uppercase tracking-wider">
+              <div className="text-[10px] text-white/50 uppercase tracking-wider">
                 {product.signs.join(' Â· ')}
               </div>
             )}

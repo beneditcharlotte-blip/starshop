@@ -4,6 +4,7 @@ import { ProductList } from '../components/ProductList';
 import { zodiacSigns } from '../data/zodiacSigns';
 import { ZodiacSymbol } from '../components/ZodiacSymbol';
 import { Tab } from '../components/ui/Tab';
+import { StickyTabBar } from '../components/ui/StickyTabBar';
 import { PageWrapper } from '../components/layout/PageWrapper';
 
 export function ZodiacPage() {
@@ -12,8 +13,7 @@ export function ZodiacPage() {
   return (
     <PageWrapper>
 
-      {/* Sticky Tab Bar */}
-      <div className="sticky top-20 z-40 bg-[#4A252C]/95 backdrop-blur border-b border-[#d4a5a5]/20 overflow-x-auto no-scrollbar">
+      <StickyTabBar scrollable>
         <div className="flex items-center justify-center min-w-max space-x-6 px-8">
           {zodiacSigns.map((sign) => (
             <Tab
@@ -26,7 +26,7 @@ export function ZodiacPage() {
             />
           ))}
         </div>
-      </div>
+      </StickyTabBar>
 
       {/* Hero Section */}
       <div className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-black">
