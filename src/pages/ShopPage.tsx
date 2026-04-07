@@ -56,7 +56,7 @@ export function ShopPage() {
           {(['zodiac', 'moon-phase', 'amulet'] as CollectionTab[]).map((tab) => (
             <Tab
               key={tab}
-              label={tab === 'moon-phase' ? 'Moon Phase' : tab === 'zodiac' ? 'Zodiac' : 'Amulet'}
+              label={tab === 'moon-phase' ? 'Moon Phase' : tab === 'zodiac' ? 'Element' : 'Amulet'}
               isActive={activeTab === tab}
               onClick={() => setActiveTab(tab)}
               layoutId="activeTab"
