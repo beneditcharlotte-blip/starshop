@@ -8,6 +8,12 @@ const hashToView: Record<string, View> = {
   '#protection-amulets': 'protection',
   '#shop-page': 'shop',
   '#shipping': 'shipping',
+  '#care-guide': 'care-guide',
+  '#faq': 'faq',
+  '#contact': 'contact',
+  '#privacy': 'privacy',
+  '#terms': 'terms',
+  '#returns': 'returns',
 };
 
 export function useHashRouter(): View {

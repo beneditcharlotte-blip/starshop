@@ -14,6 +14,14 @@ import { ProtectionAmuletsPage } from './pages/ProtectionAmuletsPage';
 import { ShopPage } from './pages/ShopPage';
 import { ShippingPage } from './pages/ShippingPage';
 import { ReviewsSection } from './components/ReviewsSection';
+import {
+  CareGuidePage,
+  FAQPage,
+  ContactPage,
+  PrivacyPolicyPage,
+  TermsPage,
+  ReturnPolicyPage,
+} from './components/PolicyPages';
 
 export default function App() {
   const [selectedSign, setSelectedSign] = useState<string | null>(null);
@@ -78,6 +86,12 @@ export default function App() {
         {currentView === 'protection' && <ProtectionAmuletsPage />}
         {currentView === 'shop' && <ShopPage />}
         {currentView === 'shipping' && <ShippingPage />}
+        {currentView === 'care-guide' && <CareGuidePage />}
+        {currentView === 'faq' && <FAQPage />}
+        {currentView === 'contact' && <ContactPage />}
+        {currentView === 'privacy' && <PrivacyPolicyPage />}
+        {currentView === 'terms' && <TermsPage />}
+        {currentView === 'returns' && <ReturnPolicyPage />}
 
         <Footer />
         <CartSidebar />

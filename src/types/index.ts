@@ -1,4 +1,4 @@
-export type View = 'home' | 'zodiac' | 'story' | 'moon-phase' | 'protection' | 'shop' | 'shipping';
+export type View = 'home' | 'zodiac' | 'story' | 'moon-phase' | 'protection' | 'shop' | 'shipping' | 'care-guide' | 'faq' | 'contact' | 'privacy' | 'terms' | 'returns';
 
 export interface NavLink {
   label: string;
