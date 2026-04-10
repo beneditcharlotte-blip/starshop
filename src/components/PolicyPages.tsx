@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { PageWrapper } from './layout/PageWrapper';
 import {
-  Wind, Sparkles, Droplets, Gem, Box,
+  Wind, Sparkles, Droplets, Gem, Box, Sun, Moon, Flame, Music2,
   Mail, MessageSquare, Send,
   Package, RefreshCw, HelpCircle,
 } from 'lucide-react';
@@ -18,100 +18,277 @@ const dividerClass = "w-12 h-[1px] bg-[#d4a5a5]/30 my-8";
 
 // ─── Care Guide ──────────────────────────────────────────────────────────────
 
-const careGuideData = [
+const cleansingMethods = [
   {
-    icon: Wind,
-    title: 'Cleansing Methods',
-    items: [
-      { label: 'Moonlight', value: 'Place on a windowsill under a full moon overnight. Gentle and safe for all stone types.' },
-      { label: 'Smoke', value: 'Pass through sage or palo santo smoke for 20–30 seconds while holding a clear intention of purification.' },
-      { label: 'Sound', value: 'Singing bowl or tuning fork resonance washes over a full collection at once.' },
-      { label: 'Frequency', value: 'At least once a month, or after periods of heavy use or emotional intensity.' },
-    ],
+    Icon: Moon,
+    name: 'Moonlight',
+    description: 'Place crystals on a windowsill or outdoors under a full moon overnight. Retrieve before direct morning sun. Universally safe — no stone is harmed by moonlight.',
+    badge: 'Safe for all stones',
   },
   {
-    icon: Sparkles,
-    title: 'Charging',
-    items: [
-      { label: 'Selenite slab', value: 'Place crystals on a slab overnight to restore their natural vibration.' },
-      { label: 'Quartz cluster', value: 'Rest pieces on Clear Quartz for amplified, sustained energy.' },
-      { label: 'Intention setting', value: 'Hold the stone in both hands, breathe a specific intention into it, and visualize energy filling it.' },
-    ],
+    Icon: Flame,
+    name: 'Smoke',
+    description: 'Pass each piece through sage, palo santo, or cedar smoke for 20–30 seconds. Hold a clear intention of purification as you move the crystal through the plume.',
+    badge: 'Safe for all stones',
   },
   {
-    icon: Droplets,
-    title: 'Water & Sunlight',
-    items: [
-      { label: 'Avoid water', value: 'Selenite, Malachite, Pyrite, Celestite, Lepidolite, and all raw or porous stones.' },
-      { label: 'Safe to rinse', value: 'Quartz and Amethyst — brief contact with cool running water only. Dry thoroughly and immediately.' },
-      { label: 'Fades in sunlight', value: 'Amethyst, Rose Quartz, Citrine, Aquamarine, and Fluorite. Avoid prolonged window placement.' },
-      { label: 'Sunlight safe', value: 'Brief morning light is fine; never leave crystals in direct sun for hours at a time.' },
-    ],
+    Icon: Music2,
+    name: 'Sound',
+    description: 'Strike a singing bowl or tuning fork and let the resonance wash over your collection. Cleanses multiple pieces at once — ideal for larger sets.',
+    badge: 'Safe for all stones',
+  },
+];
+
+const chargingMethods = [
+  {
+    title: 'Selenite Slab',
+    description: 'Place crystals directly on a Selenite charging plate overnight. Selenite self-cleanses and will simultaneously purify and amplify any stone resting on it.',
   },
   {
-    icon: Gem,
-    title: 'Jewelry Care',
-    items: [
-      { label: 'Remove before', value: 'Swimming, bathing, exercise, and applying perfume, lotion, or makeup.' },
-      { label: 'Cleaning', value: 'Wipe gently with a soft, dry cloth after each wear to remove oils and residue.' },
-      { label: 'Chemicals', value: 'Cosmetics and chlorine can dull metal settings and weaken adhesive bonds over time.' },
-    ],
+    title: 'Clear Quartz Cluster',
+    description: 'Nestle your pieces within or beside a Clear Quartz cluster. Quartz is a natural amplifier — it draws out residual energy and restores a stone\'s native vibration.',
   },
   {
-    icon: Box,
-    title: 'Storage',
-    items: [
-      { label: 'Pouches', value: 'Store each piece in the provided silk or velvet pouch to prevent surface scratches.' },
-      { label: 'Separation', value: 'Keep hard stones (Quartz, Topaz) away from soft ones (Selenite, Calcite).' },
-      { label: 'Environment', value: 'Away from direct heat sources, prolonged sunlight, and humidity.' },
-    ],
+    title: 'Intention Setting',
+    description: 'Hold the stone in both hands, close your eyes, and breathe a specific intention into it. Visualize warm light filling every facet. Your focused energy is the charge.',
   },
+];
+
+const waterSensitiveStones = ['Selenite', 'Malachite', 'Pyrite', 'Celestite', 'Lepidolite', 'Calcite', 'Halite', 'Raw / Porous'];
+const sunSensitiveStones   = ['Amethyst', 'Rose Quartz', 'Citrine', 'Aquamarine', 'Fluorite', 'Kunzite', 'Opal'];
+
+const avoidList = [
+  'Swimming, bathing & showering',
+  'Applying perfume, lotion or makeup',
+  'Exercise & high-impact activity',
+  'Prolonged direct sunlight or window heat',
+];
+
+const bestPracticesList = [
+  'Wipe with a soft, dry cloth after every wear',
+  'Store in the provided silk or velvet pouch',
+  'Cleanse monthly under moonlight or with sage',
+  'Remove before any chemical contact',
+];
+
+const storageTips = [
+  { title: 'Pouches', description: 'Each piece lives in its own silk or velvet pouch. The lining prevents surface micro-scratches that dull a stone\'s lustre over time.' },
+  { title: 'Separation', description: 'Hard stones such as Quartz and Topaz can scratch softer ones like Selenite and Calcite. Keep them apart, even inside a jewellery box.' },
+  { title: 'Environment', description: 'Choose a cool, dry spot away from direct heat and humidity. Bathroom surfaces and sunny windowsills are the two most common culprits.' },
 ];
 
 export function CareGuidePage() {
   return (
     <PageWrapper className="pb-24 pt-28" id="care-guide">
-      <div className="container mx-auto px-6 max-w-3xl space-y-16">
+      <div className="container mx-auto px-6 max-w-4xl space-y-24">
 
+        {/* ── Header ─────────────────────────────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center space-y-4"
+          className="text-center space-y-5"
         >
           <p className="text-[10px] uppercase tracking-[0.3em] text-[#d4a5a5]/60">Care</p>
-          <h1 className="font-serif text-5xl italic text-[#d4a5a5]">Crystal Care Guide</h1>
+          <h1 className="font-serif text-5xl md:text-6xl italic text-[#d4a5a5]">Crystal Care Guide</h1>
+          <div className="flex items-center justify-center gap-3">
+            <div className="h-[1px] w-16 bg-[#d4a5a5]/20" />
+            <span className="text-[#d4a5a5]/40 text-sm">✦</span>
+            <div className="h-[1px] w-16 bg-[#d4a5a5]/20" />
+          </div>
           <p className="text-sm text-white/50 max-w-md mx-auto leading-relaxed">
             Preserve the energy and beauty of your stones with these simple rituals.
           </p>
         </motion.div>
 
-        {careGuideData.map((section, i) => {
-          const Icon = section.icon;
-          return (
-            <motion.div
-              key={section.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="space-y-6"
-            >
-              <div className="flex items-center space-x-3 border-b border-[#d4a5a5]/20 pb-4">
-                <Icon size={18} className="text-[#d4a5a5]" />
-                <h2 className="font-serif text-xl text-[#d4a5a5]">{section.title}</h2>
+        {/* ── Cleansing — 3 cards ────────────────────────────── */}
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="space-y-8"
+        >
+          <div className="flex items-center gap-4">
+            <Wind size={18} className="text-[#d4a5a5] flex-shrink-0" />
+            <h2 className="font-serif text-2xl text-[#d4a5a5]">Cleansing Methods</h2>
+            <div className="flex-1 h-[1px] bg-[#d4a5a5]/10" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {cleansingMethods.map(({ Icon, name, description, badge }, i) => (
+              <motion.div
+                key={name}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-[#3a1f24] border border-[#d4a5a5]/10 hover:border-[#d4a5a5]/30 transition-colors p-7 flex flex-col gap-5"
+              >
+                <Icon size={28} className="text-[#d4a5a5]/70" />
+                <div className="space-y-2 flex-1">
+                  <h3 className="font-serif text-lg text-[#d4a5a5]">{name}</h3>
+                  <p className="text-sm text-white/50 leading-relaxed">{description}</p>
+                </div>
+                <span className="self-start text-[10px] uppercase tracking-widest text-[#d4a5a5]/50 border border-[#d4a5a5]/20 px-3 py-1">
+                  {badge}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+
+          <p className="text-xs text-white/30 text-center tracking-wide">
+            ✦ &nbsp; Cleanse at least once a month, or after periods of heavy use or emotional intensity
+          </p>
+        </motion.section>
+
+        {/* ── Charging — numbered steps ──────────────────────── */}
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="space-y-8"
+        >
+          <div className="flex items-center gap-4">
+            <Sparkles size={18} className="text-[#d4a5a5] flex-shrink-0" />
+            <h2 className="font-serif text-2xl text-[#d4a5a5]">Charging Your Crystals</h2>
+            <div className="flex-1 h-[1px] bg-[#d4a5a5]/10" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {chargingMethods.map(({ title, description }, i) => (
+              <div key={title} className="flex gap-5 items-start">
+                <span className="text-6xl font-serif text-[#d4a5a5]/8 leading-none select-none flex-shrink-0" style={{ color: 'rgba(212,165,165,0.08)' }}>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div className="space-y-2 pt-1">
+                  <h3 className="text-xs uppercase tracking-[0.2em] text-[#d4a5a5]/70">{title}</h3>
+                  <p className="text-sm text-white/50 leading-relaxed">{description}</p>
+                </div>
               </div>
-              <div className="space-y-4">
-                {section.items.map(item => (
-                  <div key={item.label} className="flex justify-between items-start gap-8">
-                    <span className="text-xs uppercase tracking-wider text-white/40 flex-shrink-0 w-40">{item.label}</span>
-                    <span className="text-sm text-[#f3e6e6]/80 text-right">{item.value}</span>
-                  </div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* ── Water & Sunlight — tag panels ─────────────────── */}
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="space-y-8"
+        >
+          <div className="flex items-center gap-4">
+            <Droplets size={18} className="text-[#d4a5a5] flex-shrink-0" />
+            <h2 className="font-serif text-2xl text-[#d4a5a5]">Water &amp; Sunlight</h2>
+            <div className="flex-1 h-[1px] bg-[#d4a5a5]/10" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {/* Water panel */}
+            <div className="border border-[#d4a5a5]/15 p-6 space-y-5">
+              <div className="flex items-center gap-2">
+                <Droplets size={13} className="text-[#d4a5a5]/50" />
+                <p className="text-[10px] uppercase tracking-[0.25em] text-[#d4a5a5]/50">Keep Dry — Sensitive to Water</p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {waterSensitiveStones.map(s => (
+                  <span key={s} className="text-xs px-3 py-1 bg-[#d4a5a5]/5 border border-[#d4a5a5]/15 text-white/55 rounded-none">
+                    {s}
+                  </span>
                 ))}
               </div>
-            </motion.div>
-          );
-        })}
+              <div className="border-t border-[#d4a5a5]/10 pt-4 space-y-1">
+                <p className="text-[10px] uppercase tracking-widest text-[#d4a5a5]/40">Safe to briefly rinse</p>
+                <p className="text-xs text-white/45 leading-relaxed">
+                  Quartz · Amethyst — cool running water only. Dry immediately and thoroughly.
+                </p>
+              </div>
+            </div>
 
+            {/* Sunlight panel */}
+            <div className="border border-[#d4a5a5]/15 p-6 space-y-5">
+              <div className="flex items-center gap-2">
+                <Sun size={13} className="text-[#d4a5a5]/50" />
+                <p className="text-[10px] uppercase tracking-[0.25em] text-[#d4a5a5]/50">Colour Fades in Direct Sunlight</p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {sunSensitiveStones.map(s => (
+                  <span key={s} className="text-xs px-3 py-1 bg-[#d4a5a5]/5 border border-[#d4a5a5]/15 text-white/55 rounded-none">
+                    {s}
+                  </span>
+                ))}
+              </div>
+              <div className="border-t border-[#d4a5a5]/10 pt-4 space-y-1">
+                <p className="text-[10px] uppercase tracking-widest text-[#d4a5a5]/40">What's safe</p>
+                <p className="text-xs text-white/45 leading-relaxed">
+                  Brief morning light is fine. Never leave crystals on a sunny windowsill for hours.
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* ── Jewelry Care — do / don't ──────────────────────── */}
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="space-y-8"
+        >
+          <div className="flex items-center gap-4">
+            <Gem size={18} className="text-[#d4a5a5] flex-shrink-0" />
+            <h2 className="font-serif text-2xl text-[#d4a5a5]">Jewelry Care</h2>
+            <div className="flex-1 h-[1px] bg-[#d4a5a5]/10" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="bg-[#3a1f24] p-6 space-y-5">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-white/25">Avoid</p>
+              <ul className="space-y-4">
+                {avoidList.map(item => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-white/50">
+                    <span className="text-[#d4a5a5]/30 text-base leading-tight mt-0.5 flex-shrink-0">×</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-[#3a1f24] p-6 space-y-5">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-white/25">Best Practices</p>
+              <ul className="space-y-4">
+                {bestPracticesList.map(item => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-white/50">
+                    <span className="text-[#d4a5a5]/60 text-base leading-tight mt-0.5 flex-shrink-0">✦</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* ── Storage — left-border tips ─────────────────────── */}
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="space-y-8"
+        >
+          <div className="flex items-center gap-4">
+            <Box size={18} className="text-[#d4a5a5] flex-shrink-0" />
+            <h2 className="font-serif text-2xl text-[#d4a5a5]">Storage</h2>
+            <div className="flex-1 h-[1px] bg-[#d4a5a5]/10" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {storageTips.map(({ title, description }) => (
+              <div key={title} className="border-l-2 border-[#d4a5a5]/25 pl-5 space-y-2">
+                <p className="text-xs uppercase tracking-[0.2em] text-[#d4a5a5]/60">{title}</p>
+                <p className="text-sm text-white/50 leading-relaxed">{description}</p>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* ── Footer CTA ─────────────────────────────────────── */}
         <div className="border border-[#d4a5a5]/20 p-6 text-center space-y-2">
           <p className="text-xs uppercase tracking-[0.2em] text-[#d4a5a5]">Need Guidance?</p>
           <p className="text-sm text-white/50 leading-relaxed">
@@ -120,6 +297,7 @@ export function CareGuidePage() {
             and we'll guide you personally.
           </p>
         </div>
+
       </div>
     </PageWrapper>
   );
