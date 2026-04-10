@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
+import { PageWrapper } from './layout/PageWrapper';
+import {
+  Wind, Sparkles, Droplets, Gem, Box,
+  Mail, MessageSquare, Send,
+  Package, RefreshCw, HelpCircle,
+} from 'lucide-react';
 
+// Shared style tokens (used by Privacy, Terms, ReturnPolicy, ShippingPolicy)
 const pageClass = "min-h-screen bg-[#3a1f24] text-[#f3e6e6] font-serif";
 const containerClass = "container mx-auto px-4 py-20 max-w-3xl";
 const headingClass = "text-4xl italic font-light text-[#d4a5a5] mb-4";
@@ -8,68 +16,112 @@ const sectionTitleClass = "text-xl font-light text-[#d4a5a5] mt-10 mb-3";
 const bodyClass = "text-[#f3e6e6]/70 font-light leading-relaxed text-sm";
 const dividerClass = "w-12 h-[1px] bg-[#d4a5a5]/30 my-8";
 
-// ─── Care Guide ───────────────────────────────────────────────────
+// ─── Care Guide ──────────────────────────────────────────────────────────────
+
+const careGuideData = [
+  {
+    icon: Wind,
+    title: 'Cleansing Methods',
+    items: [
+      { label: 'Moonlight', value: 'Place on a windowsill under a full moon overnight. Gentle and safe for all stone types.' },
+      { label: 'Smoke', value: 'Pass through sage or palo santo smoke for 20–30 seconds while holding a clear intention of purification.' },
+      { label: 'Sound', value: 'Singing bowl or tuning fork resonance washes over a full collection at once.' },
+      { label: 'Frequency', value: 'At least once a month, or after periods of heavy use or emotional intensity.' },
+    ],
+  },
+  {
+    icon: Sparkles,
+    title: 'Charging',
+    items: [
+      { label: 'Selenite slab', value: 'Place crystals on a slab overnight to restore their natural vibration.' },
+      { label: 'Quartz cluster', value: 'Rest pieces on Clear Quartz for amplified, sustained energy.' },
+      { label: 'Intention setting', value: 'Hold the stone in both hands, breathe a specific intention into it, and visualize energy filling it.' },
+    ],
+  },
+  {
+    icon: Droplets,
+    title: 'Water & Sunlight',
+    items: [
+      { label: 'Avoid water', value: 'Selenite, Malachite, Pyrite, Celestite, Lepidolite, and all raw or porous stones.' },
+      { label: 'Safe to rinse', value: 'Quartz and Amethyst — brief contact with cool running water only. Dry thoroughly and immediately.' },
+      { label: 'Fades in sunlight', value: 'Amethyst, Rose Quartz, Citrine, Aquamarine, and Fluorite. Avoid prolonged window placement.' },
+      { label: 'Sunlight safe', value: 'Brief morning light is fine; never leave crystals in direct sun for hours at a time.' },
+    ],
+  },
+  {
+    icon: Gem,
+    title: 'Jewelry Care',
+    items: [
+      { label: 'Remove before', value: 'Swimming, bathing, exercise, and applying perfume, lotion, or makeup.' },
+      { label: 'Cleaning', value: 'Wipe gently with a soft, dry cloth after each wear to remove oils and residue.' },
+      { label: 'Chemicals', value: 'Cosmetics and chlorine can dull metal settings and weaken adhesive bonds over time.' },
+    ],
+  },
+  {
+    icon: Box,
+    title: 'Storage',
+    items: [
+      { label: 'Pouches', value: 'Store each piece in the provided silk or velvet pouch to prevent surface scratches.' },
+      { label: 'Separation', value: 'Keep hard stones (Quartz, Topaz) away from soft ones (Selenite, Calcite).' },
+      { label: 'Environment', value: 'Away from direct heat sources, prolonged sunlight, and humidity.' },
+    ],
+  },
+];
+
 export function CareGuidePage() {
   return (
-    <div className={pageClass}>
-      <div className={containerClass}>
-        <h1 className={headingClass}>Crystal Care Guide</h1>
-        <p className={subheadingClass}>Preserve the energy of your stones</p>
-        <div className={dividerClass} />
+    <PageWrapper className="pb-24 pt-28" id="care-guide">
+      <div className="container mx-auto px-6 max-w-3xl space-y-16">
 
-        <h2 className={sectionTitleClass}>Cleansing Your Crystals</h2>
-        <p className={bodyClass}>
-          Crystals absorb the energies around them and should be cleansed regularly to restore their natural vibration. We recommend cleansing your pieces at least once a month, or after periods of heavy use or emotional intensity.
-        </p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center space-y-4"
+        >
+          <p className="text-[10px] uppercase tracking-[0.3em] text-[#d4a5a5]/60">Care</p>
+          <h1 className="font-serif text-5xl italic text-[#d4a5a5]">Crystal Care Guide</h1>
+          <p className="text-sm text-white/50 max-w-md mx-auto leading-relaxed">
+            Preserve the energy and beauty of your stones with these simple rituals.
+          </p>
+        </motion.div>
 
-        <h2 className={sectionTitleClass}>Moonlight Cleansing</h2>
-        <p className={bodyClass}>
-          Place your crystals on a windowsill or outdoors under the light of the full moon overnight. This is the gentlest and most universal method — safe for all stone types, including water-sensitive pieces. Retrieve them before direct morning sunlight falls on them.
-        </p>
+        {careGuideData.map((section, i) => {
+          const Icon = section.icon;
+          return (
+            <motion.div
+              key={section.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="space-y-6"
+            >
+              <div className="flex items-center space-x-3 border-b border-[#d4a5a5]/20 pb-4">
+                <Icon size={18} className="text-[#d4a5a5]" />
+                <h2 className="font-serif text-xl text-[#d4a5a5]">{section.title}</h2>
+              </div>
+              <div className="space-y-4">
+                {section.items.map(item => (
+                  <div key={item.label} className="flex justify-between items-start gap-8">
+                    <span className="text-xs uppercase tracking-wider text-white/40 flex-shrink-0 w-40">{item.label}</span>
+                    <span className="text-sm text-[#f3e6e6]/80 text-right">{item.value}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          );
+        })}
 
-        <h2 className={sectionTitleClass}>Smoke Cleansing (Sage & Palo Santo)</h2>
-        <p className={bodyClass}>
-          Pass your crystals through the smoke of sacred herbs — white sage, palo santo, or cedar — for 20–30 seconds while holding a clear intention of purification. This method is safe for all crystals and clears stagnant energy quickly.
-        </p>
-
-        <h2 className={sectionTitleClass}>Sound Cleansing</h2>
-        <p className={bodyClass}>
-          Sound vibrations from a singing bowl, tuning fork, or even gentle chanting can effectively cleanse a collection of stones all at once. Place crystals near the bowl and allow the resonance to wash over them for a few minutes.
-        </p>
-
-        <h2 className={sectionTitleClass}>Water & Sunlight — Handle With Care</h2>
-        <p className={bodyClass}>
-          <strong className="text-[#d4a5a5]">Water:</strong> Many crystals are water-soluble or can be damaged by prolonged moisture. Avoid submerging Selenite, Malachite, Pyrite, Celestite, Lepidolite, and any raw or porous stones in water. A quick rinse under cool running water is fine for hard stones like Quartz and Amethyst, but always dry immediately and thoroughly.
-        </p>
-        <p className={`${bodyClass} mt-3`}>
-          <strong className="text-[#d4a5a5]">Sunlight:</strong> Extended exposure to direct sunlight can fade color in stones such as Amethyst, Rose Quartz, Citrine, Aquamarine, and Fluorite. Brief morning light is generally safe; avoid leaving crystals in sunny windows for hours at a time.
-        </p>
-
-        <h2 className={sectionTitleClass}>Charging Your Crystals</h2>
-        <p className={bodyClass}>
-          After cleansing, charge your crystals to amplify their energy. Place them on a Selenite slab or Clear Quartz cluster overnight. You can also hold a crystal in both hands, close your eyes, and breathe a specific intention into it — visualizing your desired energy filling the stone.
-        </p>
-
-        <h2 className={sectionTitleClass}>Jewelry Care</h2>
-        <p className={bodyClass}>
-          Remove crystal jewelry before swimming, bathing, exercising, or applying perfume and lotions. Chemicals in cosmetics and chlorinated water can dull the finish of metal settings and weaken adhesive bonds over time. Wipe pieces gently with a soft, dry cloth after wearing.
-        </p>
-
-        <h2 className={sectionTitleClass}>Storage</h2>
-        <p className={bodyClass}>
-          Store each piece in the silk or velvet pouch provided, or in a soft-lined jewelry box. Keep crystals separated to avoid scratching — harder stones (Quartz, Topaz) can scratch softer ones (Selenite, Calcite). Keep your collection away from direct heat sources and humidity.
-        </p>
-
-        <h2 className={sectionTitleClass}>Questions?</h2>
-        <p className={bodyClass}>
-          If you're unsure about a specific stone in your collection, reach out to us at{' '}
-          <a href="mailto:hello@astrophilandstella.com" className="text-[#d4a5a5] hover:underline">
-            hello@astrophilandstella.com
-          </a>{' '}
-          and we'll guide you personally.
-        </p>
+        <div className="border border-[#d4a5a5]/20 p-6 text-center space-y-2">
+          <p className="text-xs uppercase tracking-[0.2em] text-[#d4a5a5]">Need Guidance?</p>
+          <p className="text-sm text-white/50 leading-relaxed">
+            Unsure about a specific stone? Email us at{' '}
+            <span className="text-[#d4a5a5]">hello@astrophilandstella.com</span>{' '}
+            and we'll guide you personally.
+          </p>
+        </div>
       </div>
-    </div>
+    </PageWrapper>
   );
 }
 
@@ -246,6 +298,70 @@ export function ShippingPolicyPage() {
 }
 
 // ─── FAQ ──────────────────────────────────────────────────────────
+
+const faqSections = [
+  {
+    icon: Package,
+    title: 'Orders & Shipping',
+    faqs: [
+      {
+        q: 'Can I track my order?',
+        a: "You'll receive a tracking number via email once your order ships. Please allow 1–3 business days for processing before tracking updates appear.",
+      },
+      {
+        q: 'Do you ship internationally?',
+        a: 'Yes, we ship worldwide. Delivery times vary by destination (7–25 business days). Free shipping applies on orders over $55, globally.',
+      },
+      {
+        q: 'Can I change or cancel my order?',
+        a: 'Orders can be modified or cancelled within 24 hours of placement. After that, the order may already be in fulfillment. Contact us at hello@astrophilandstella.com as soon as possible.',
+      },
+    ],
+  },
+  {
+    icon: Gem,
+    title: 'Products & Crystals',
+    faqs: [
+      {
+        q: 'Are your crystals natural or synthetic?',
+        a: 'All our crystals are 100% natural gemstones sourced ethically. Slight variations in color, pattern, and size are expected — this is a sign of authenticity, not a defect.',
+      },
+      {
+        q: 'How do I know which crystal is right for me?',
+        a: "We recommend starting with your zodiac sign — each constellation has crystals aligned with its energy. Browse our Zodiac Collection or use the 'Find Your Crystal' guide on the Shop page.",
+      },
+      {
+        q: 'What if my item arrives damaged?',
+        a: "Please email us at hello@astrophilandstella.com within 7 days of delivery with a photo. We'll send a replacement immediately, free of charge.",
+      },
+    ],
+  },
+  {
+    icon: RefreshCw,
+    title: 'Returns & Packaging',
+    faqs: [
+      {
+        q: 'Do you offer gift packaging?',
+        a: 'Yes — all orders are shipped in our signature matte black box with a ribbon and a crystal care card, making every purchase gift-ready at no extra cost.',
+      },
+      {
+        q: 'How do I start a return?',
+        a: 'Email us at hello@astrophilandstella.com with your order number and reason. We accept returns within 30 days of delivery and will send a prepaid label within 1–2 business days.',
+      },
+    ],
+  },
+  {
+    icon: HelpCircle,
+    title: 'Crystal Care',
+    faqs: [
+      {
+        q: 'How do I care for my crystal jewelry?',
+        a: 'Keep crystals away from direct sunlight for extended periods, avoid water contact (especially for softer stones), and store in the pouch provided. Cleanse monthly under moonlight or with sage smoke to restore their energy.',
+      },
+    ],
+  },
+];
+
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
@@ -255,7 +371,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         className="w-full text-left flex justify-between items-center text-[#f3e6e6]/80 hover:text-[#d4a5a5] transition-colors text-sm font-light tracking-wide"
       >
         <span>{q}</span>
-        <span className="text-[#d4a5a5] text-lg ml-4">{open ? '−' : '+'}</span>
+        <span className="text-[#d4a5a5] text-lg ml-4 flex-shrink-0">{open ? '−' : '+'}</span>
       </button>
       {open && <p className="mt-3 text-[#f3e6e6]/60 text-sm font-light leading-relaxed">{a}</p>}
     </div>
@@ -263,56 +379,79 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 export function FAQPage() {
-  const faqs = [
-    {
-      q: "Are your crystals natural or synthetic?",
-      a: "All our crystals are 100% natural gemstones sourced ethically. Because they are natural, slight variations in color, pattern, and size are expected — this is a sign of authenticity, not a defect."
-    },
-    {
-      q: "How do I know which crystal is right for me?",
-      a: "We recommend starting with your zodiac sign — each constellation has crystals aligned with its energy. Browse our Zodiac Collection or use our 'Find Your Crystal' guide on the Shop page."
-    },
-    {
-      q: "How do I care for my crystal jewelry?",
-      a: "Keep crystals away from direct sunlight for extended periods, avoid water contact (especially for softer stones), and store in the pouch provided. Cleanse your crystals monthly under moonlight or with sage smoke to restore their energy."
-    },
-    {
-      q: "Can I track my order?",
-      a: "Yes. You'll receive a tracking number via email once your order ships. Please allow 1–3 business days for processing before tracking updates appear."
-    },
-    {
-      q: "Do you offer gift packaging?",
-      a: "Yes — all orders are shipped in our signature matte black box with a ribbon and a crystal care card, making every purchase gift-ready at no extra cost."
-    },
-    {
-      q: "What if my item arrives damaged?",
-      a: "Please email us at hello@astrophilandstella.com within 7 days of delivery with a photo. We'll send a replacement immediately, free of charge."
-    },
-    {
-      q: "Do you ship internationally?",
-      a: "Yes, we ship worldwide. Delivery times vary by destination (7–25 business days). Free shipping applies on orders over $55, globally."
-    },
-    {
-      q: "Can I change or cancel my order?",
-      a: "Orders can be modified or cancelled within 24 hours of placement. After that, the order may already be in fulfillment. Contact us at hello@astrophilandstella.com as soon as possible."
-    },
-  ];
-
   return (
-    <div className={pageClass}>
-      <div className={containerClass}>
-        <h1 className={headingClass}>Frequently Asked Questions</h1>
-        <p className={subheadingClass}>Everything you need to know</p>
-        <div className={dividerClass} />
-        <div>
-          {faqs.map((faq, i) => <FAQItem key={i} q={faq.q} a={faq.a} />)}
+    <PageWrapper className="pb-24 pt-28" id="faq">
+      <div className="container mx-auto px-6 max-w-3xl space-y-16">
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center space-y-4"
+        >
+          <p className="text-[10px] uppercase tracking-[0.3em] text-[#d4a5a5]/60">Support</p>
+          <h1 className="font-serif text-5xl italic text-[#d4a5a5]">Frequently Asked Questions</h1>
+          <p className="text-sm text-white/50 max-w-md mx-auto leading-relaxed">
+            Everything you need to know about our crystals, orders, and policies.
+          </p>
+        </motion.div>
+
+        {faqSections.map((section, i) => {
+          const Icon = section.icon;
+          return (
+            <motion.div
+              key={section.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="space-y-2"
+            >
+              <div className="flex items-center space-x-3 border-b border-[#d4a5a5]/20 pb-4 mb-2">
+                <Icon size={18} className="text-[#d4a5a5]" />
+                <h2 className="font-serif text-xl text-[#d4a5a5]">{section.title}</h2>
+              </div>
+              {section.faqs.map(faq => (
+                <FAQItem key={faq.q} q={faq.q} a={faq.a} />
+              ))}
+            </motion.div>
+          );
+        })}
+
+        <div className="border border-[#d4a5a5]/20 p-6 text-center space-y-2">
+          <p className="text-xs uppercase tracking-[0.2em] text-[#d4a5a5]">Still have questions?</p>
+          <p className="text-sm text-white/50 leading-relaxed">
+            Email us at <span className="text-[#d4a5a5]">hello@astrophilandstella.com</span> — we reply within 24–48 hours.
+          </p>
         </div>
       </div>
-    </div>
+    </PageWrapper>
   );
 }
 
 // ─── Contact ──────────────────────────────────────────────────────
+
+const contactInfoData = [
+  {
+    icon: Mail,
+    title: 'Get in Touch',
+    items: [
+      { label: 'Email', value: 'hello@astrophilandstella.com' },
+      { label: 'Response time', value: 'Within 24–48 hours' },
+      { label: 'Support hours', value: 'Monday–Friday, 9am–6pm EST' },
+    ],
+  },
+  {
+    icon: MessageSquare,
+    title: 'Common Topics',
+    items: [
+      { label: 'Orders & tracking', value: 'Include your order number for the fastest response.' },
+      { label: 'Returns', value: 'Email with order number and a photo if the item is damaged.' },
+      { label: 'Product questions', value: 'Ask us about any crystal, stone type, or jewelry piece.' },
+      { label: 'Wholesale', value: 'Include your business name and location for enquiries.' },
+    ],
+  },
+];
+
 export function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
@@ -325,68 +464,110 @@ export function ContactPage() {
   }
 
   return (
-    <div className={pageClass}>
-      <div className={containerClass}>
-        <h1 className={headingClass}>Contact Us</h1>
-        <p className={subheadingClass}>We reply within 24–48 hours</p>
-        <div className={dividerClass} />
+    <PageWrapper className="pb-24 pt-28" id="contact">
+      <div className="container mx-auto px-6 max-w-3xl space-y-16">
 
-        <p className={`${bodyClass} mb-8`}>
-          Have a question about your order, a crystal, or anything else? We'd love to hear from you. You can also reach us directly at{' '}
-          <a href="mailto:hello@astrophilandstella.com" className="text-[#d4a5a5] hover:underline">
-            hello@astrophilandstella.com
-          </a>
-        </p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center space-y-4"
+        >
+          <p className="text-[10px] uppercase tracking-[0.3em] text-[#d4a5a5]/60">Support</p>
+          <h1 className="font-serif text-5xl italic text-[#d4a5a5]">Contact Us</h1>
+          <p className="text-sm text-white/50 max-w-md mx-auto leading-relaxed">
+            We reply to every message within 24–48 hours. We'd love to hear from you.
+          </p>
+        </motion.div>
 
-        {sent ? (
-          <div className="text-center py-16">
-            <p className="text-2xl italic text-[#d4a5a5] mb-3">✦ Message received</p>
-            <p className={bodyClass}>We'll get back to you within 24–48 hours.</p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label className="block text-xs uppercase tracking-[0.2em] text-[#d4a5a5]/60 mb-2">Name</label>
-              <input
-                type="text"
-                value={form.name}
-                onChange={e => setForm({ ...form, name: e.target.value })}
-                required
-                className="w-full bg-transparent border-b border-[#d4a5a5]/30 py-2 text-[#f3e6e6] placeholder-white/20 outline-none focus:border-[#d4a5a5]/60 transition-colors text-sm font-light"
-                placeholder="Your name"
-              />
-            </div>
-            <div>
-              <label className="block text-xs uppercase tracking-[0.2em] text-[#d4a5a5]/60 mb-2">Email</label>
-              <input
-                type="email"
-                value={form.email}
-                onChange={e => setForm({ ...form, email: e.target.value })}
-                required
-                className="w-full bg-transparent border-b border-[#d4a5a5]/30 py-2 text-[#f3e6e6] placeholder-white/20 outline-none focus:border-[#d4a5a5]/60 transition-colors text-sm font-light"
-                placeholder="your@email.com"
-              />
-            </div>
-            <div>
-              <label className="block text-xs uppercase tracking-[0.2em] text-[#d4a5a5]/60 mb-2">Message</label>
-              <textarea
-                value={form.message}
-                onChange={e => setForm({ ...form, message: e.target.value })}
-                required
-                rows={5}
-                className="w-full bg-transparent border-b border-[#d4a5a5]/30 py-2 text-[#f3e6e6] placeholder-white/20 outline-none focus:border-[#d4a5a5]/60 transition-colors text-sm font-light resize-none"
-                placeholder="Tell us what's on your mind..."
-              />
-            </div>
-            <button
-              type="submit"
-              className="mt-4 px-10 py-3 border border-[#d4a5a5]/40 text-[#d4a5a5] uppercase tracking-[0.2em] text-xs hover:bg-[#d4a5a5]/10 transition-colors"
+        {contactInfoData.map((section, i) => {
+          const Icon = section.icon;
+          return (
+            <motion.div
+              key={section.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="space-y-6"
             >
-              Send Message
-            </button>
-          </form>
-        )}
+              <div className="flex items-center space-x-3 border-b border-[#d4a5a5]/20 pb-4">
+                <Icon size={18} className="text-[#d4a5a5]" />
+                <h2 className="font-serif text-xl text-[#d4a5a5]">{section.title}</h2>
+              </div>
+              <div className="space-y-4">
+                {section.items.map(item => (
+                  <div key={item.label} className="flex justify-between items-start gap-8">
+                    <span className="text-xs uppercase tracking-wider text-white/40 flex-shrink-0 w-40">{item.label}</span>
+                    <span className="text-sm text-[#f3e6e6]/80 text-right">{item.value}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          );
+        })}
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="space-y-6"
+        >
+          <div className="flex items-center space-x-3 border-b border-[#d4a5a5]/20 pb-4">
+            <Send size={18} className="text-[#d4a5a5]" />
+            <h2 className="font-serif text-xl text-[#d4a5a5]">Send a Message</h2>
+          </div>
+
+          {sent ? (
+            <div className="text-center py-16">
+              <p className="text-2xl italic text-[#d4a5a5] mb-3">✦ Message received</p>
+              <p className="text-sm text-white/50">We'll get back to you within 24–48 hours.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label className="block text-xs uppercase tracking-[0.2em] text-[#d4a5a5]/60 mb-2">Name</label>
+                <input
+                  type="text"
+                  value={form.name}
+                  onChange={e => setForm({ ...form, name: e.target.value })}
+                  required
+                  className="w-full bg-transparent border-b border-[#d4a5a5]/30 py-2 text-[#f3e6e6] placeholder-white/20 outline-none focus:border-[#d4a5a5]/60 transition-colors text-sm font-light"
+                  placeholder="Your name"
+                />
+              </div>
+              <div>
+                <label className="block text-xs uppercase tracking-[0.2em] text-[#d4a5a5]/60 mb-2">Email</label>
+                <input
+                  type="email"
+                  value={form.email}
+                  onChange={e => setForm({ ...form, email: e.target.value })}
+                  required
+                  className="w-full bg-transparent border-b border-[#d4a5a5]/30 py-2 text-[#f3e6e6] placeholder-white/20 outline-none focus:border-[#d4a5a5]/60 transition-colors text-sm font-light"
+                  placeholder="your@email.com"
+                />
+              </div>
+              <div>
+                <label className="block text-xs uppercase tracking-[0.2em] text-[#d4a5a5]/60 mb-2">Message</label>
+                <textarea
+                  value={form.message}
+                  onChange={e => setForm({ ...form, message: e.target.value })}
+                  required
+                  rows={5}
+                  className="w-full bg-transparent border-b border-[#d4a5a5]/30 py-2 text-[#f3e6e6] placeholder-white/20 outline-none focus:border-[#d4a5a5]/60 transition-colors text-sm font-light resize-none"
+                  placeholder="Tell us what's on your mind..."
+                />
+              </div>
+              <button
+                type="submit"
+                className="mt-4 px-10 py-3 border border-[#d4a5a5]/40 text-[#d4a5a5] uppercase tracking-[0.2em] text-xs hover:bg-[#d4a5a5]/10 transition-colors"
+              >
+                Send Message
+              </button>
+            </form>
+          )}
+        </motion.div>
       </div>
-    </div>
+    </PageWrapper>
   );
 }
