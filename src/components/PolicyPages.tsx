@@ -8,6 +8,71 @@ const sectionTitleClass = "text-xl font-light text-[#d4a5a5] mt-10 mb-3";
 const bodyClass = "text-[#f3e6e6]/70 font-light leading-relaxed text-sm";
 const dividerClass = "w-12 h-[1px] bg-[#d4a5a5]/30 my-8";
 
+// ─── Care Guide ───────────────────────────────────────────────────
+export function CareGuidePage() {
+  return (
+    <div className={pageClass}>
+      <div className={containerClass}>
+        <h1 className={headingClass}>Crystal Care Guide</h1>
+        <p className={subheadingClass}>Preserve the energy of your stones</p>
+        <div className={dividerClass} />
+
+        <h2 className={sectionTitleClass}>Cleansing Your Crystals</h2>
+        <p className={bodyClass}>
+          Crystals absorb the energies around them and should be cleansed regularly to restore their natural vibration. We recommend cleansing your pieces at least once a month, or after periods of heavy use or emotional intensity.
+        </p>
+
+        <h2 className={sectionTitleClass}>Moonlight Cleansing</h2>
+        <p className={bodyClass}>
+          Place your crystals on a windowsill or outdoors under the light of the full moon overnight. This is the gentlest and most universal method — safe for all stone types, including water-sensitive pieces. Retrieve them before direct morning sunlight falls on them.
+        </p>
+
+        <h2 className={sectionTitleClass}>Smoke Cleansing (Sage & Palo Santo)</h2>
+        <p className={bodyClass}>
+          Pass your crystals through the smoke of sacred herbs — white sage, palo santo, or cedar — for 20–30 seconds while holding a clear intention of purification. This method is safe for all crystals and clears stagnant energy quickly.
+        </p>
+
+        <h2 className={sectionTitleClass}>Sound Cleansing</h2>
+        <p className={bodyClass}>
+          Sound vibrations from a singing bowl, tuning fork, or even gentle chanting can effectively cleanse a collection of stones all at once. Place crystals near the bowl and allow the resonance to wash over them for a few minutes.
+        </p>
+
+        <h2 className={sectionTitleClass}>Water & Sunlight — Handle With Care</h2>
+        <p className={bodyClass}>
+          <strong className="text-[#d4a5a5]">Water:</strong> Many crystals are water-soluble or can be damaged by prolonged moisture. Avoid submerging Selenite, Malachite, Pyrite, Celestite, Lepidolite, and any raw or porous stones in water. A quick rinse under cool running water is fine for hard stones like Quartz and Amethyst, but always dry immediately and thoroughly.
+        </p>
+        <p className={`${bodyClass} mt-3`}>
+          <strong className="text-[#d4a5a5]">Sunlight:</strong> Extended exposure to direct sunlight can fade color in stones such as Amethyst, Rose Quartz, Citrine, Aquamarine, and Fluorite. Brief morning light is generally safe; avoid leaving crystals in sunny windows for hours at a time.
+        </p>
+
+        <h2 className={sectionTitleClass}>Charging Your Crystals</h2>
+        <p className={bodyClass}>
+          After cleansing, charge your crystals to amplify their energy. Place them on a Selenite slab or Clear Quartz cluster overnight. You can also hold a crystal in both hands, close your eyes, and breathe a specific intention into it — visualizing your desired energy filling the stone.
+        </p>
+
+        <h2 className={sectionTitleClass}>Jewelry Care</h2>
+        <p className={bodyClass}>
+          Remove crystal jewelry before swimming, bathing, exercising, or applying perfume and lotions. Chemicals in cosmetics and chlorinated water can dull the finish of metal settings and weaken adhesive bonds over time. Wipe pieces gently with a soft, dry cloth after wearing.
+        </p>
+
+        <h2 className={sectionTitleClass}>Storage</h2>
+        <p className={bodyClass}>
+          Store each piece in the silk or velvet pouch provided, or in a soft-lined jewelry box. Keep crystals separated to avoid scratching — harder stones (Quartz, Topaz) can scratch softer ones (Selenite, Calcite). Keep your collection away from direct heat sources and humidity.
+        </p>
+
+        <h2 className={sectionTitleClass}>Questions?</h2>
+        <p className={bodyClass}>
+          If you're unsure about a specific stone in your collection, reach out to us at{' '}
+          <a href="mailto:hello@astrophilandstella.com" className="text-[#d4a5a5] hover:underline">
+            hello@astrophilandstella.com
+          </a>{' '}
+          and we'll guide you personally.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 // ─── Privacy Policy ───────────────────────────────────────────────
 export function PrivacyPolicyPage() {
   return (
